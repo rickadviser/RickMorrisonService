@@ -58,19 +58,19 @@ class GuestModal extends Component {
     return (
       <div>
         <div>
-          <p>Rooms</p>
+          <span>Rooms</span>
           <button type="button" onClick={this.decreaseRooms}>-</button>
           {this.state.rooms}
           <button type="button" onClick={this.increaseRooms}>+</button>
         </div>
         <div>
-          <p>Adults</p>
+          <span>Adults</span>
           <button type="button" onClick={this.decreaseAdults}>-</button>
           {this.state.adults}
           <button type="button" onClick={this.increaseAdults}>+</button>
         </div>
         <div>
-          <p>Children</p>
+          <span>Children</span>
           <button type="button" onClick={this.decreaseChildren}>-</button>
           {this.state.children}
           <button type="button" onClick={this.increaseChildren}>+</button>

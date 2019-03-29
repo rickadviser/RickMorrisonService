@@ -22,36 +22,34 @@ class GuestSelector extends Component {
   }
 
   handleUpdate(state) {
-    console.log('handling update');
     this.setState(state);
   }
 
 
   render() {
-    let rooms = 'rooms';
-    let adults = 'adults';
-    let children = 'children';
+    let rooms = ' rooms, ';
+    let adults = ' adults, ';
+    let children = ' children';
 
     if (this.state.rooms === 1) {
-      rooms = 'room';
+      rooms = ' room, ';
     }
     if (this.state.adults === 1) {
-      adults = 'adult';
+      adults = ' adult, ';
     }
     if (this.state.children === 1) {
-      children = 'child';
+      children = ' child';
     }
 
     if (this.state.modalOpen === false) {
       return (
         <div onClick={this.handleClick}>
           <span>Guests</span>
+          <br />
           {this.state.rooms}
           {rooms}
-          {', '}
           {this.state.adults}
           {adults}
-          {', '}
           {this.state.children}
           {children}
         </div>
@@ -61,12 +59,11 @@ class GuestSelector extends Component {
       <div>
         <div onClick={this.handleClick}>
           <span>Guests</span>
+          <br />
           {this.state.rooms}
           {rooms}
-          {', '}
           {this.state.adults}
           {adults}
-          {', '}
           {this.state.children}
           {children}
         </div>

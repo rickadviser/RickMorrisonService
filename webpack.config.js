@@ -1,6 +1,6 @@
 const webpack = require('webpack');
+const path = require('path');
 
-const path = require("path");
 module.exports = {
   entry: path.join(__dirname, '/client/index.js'),
   module: {
@@ -8,19 +8,31 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      }
-    ]
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader',
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        query: {
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]',
+        },
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx', '.css'],
   },
   output: {
     path: path.join(__dirname, '/public/'),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
-    contentBase: './public'
-  }
+    contentBase: './public',
+  },
 };
