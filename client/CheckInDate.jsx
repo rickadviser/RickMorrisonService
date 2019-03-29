@@ -7,6 +7,9 @@ class CheckInDate extends Component {
     this.state = {
       checkInDate: `${new Date().getMonth() + 1}-${new Date().getDate()}-${new Date().getFullYear().toString().substr(-2)}`,
       modalOpen: false,
+      lowest: '',
+      secondLowest: '',
+      thirdLowest: '', // need to add updatePrices function somewhere, so the state actually holds the right lowest prices
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -30,7 +33,7 @@ class CheckInDate extends Component {
     if (this.state.modalOpen === true) {
       return (
         <div>
-          <div onClick={this.handleClick}>
+          <div onClick={this.props.updatePrices(this.state)}>
             <span>Check In</span>
             <br />
             <span>{this.state.checkInDate}</span>
