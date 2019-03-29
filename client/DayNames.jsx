@@ -11,3 +11,5 @@ const DayNames = () => (
     <span className="day">Sat</span>
   </div>
 );
+
+export default DayNames;

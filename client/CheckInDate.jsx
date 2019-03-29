@@ -5,9 +5,8 @@ class CheckInDate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkInDate: '',
+      checkInDate: `${new Date().getMonth() + 1}-${new Date().getDate()}-${new Date().getFullYear().toString().substr(-2)}`,
       modalOpen: false,
-      // `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear().toString().substr(-2)}`,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);

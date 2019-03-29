@@ -34,7 +34,7 @@ class CheckOutDate extends Component {
             <br />
             <span>{this.state.checkOutDate}</span>
           </div>
-          <Calendar onChange={this.handleChange} />
+          {/* <Calendar onChange={this.handleChange} /> */}
         </div>
       );
     }
