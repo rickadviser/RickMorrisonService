@@ -29,7 +29,6 @@ app.use(bodyParser.json());
 
 app.get('/prices/:date', (req, res) => {
   const { date } = req.params;
-  console.log(date)
   const query = `SELECT * FROM hotelpricing WHERE hotelpricing.bookDate_old = "${date}";`;
   connection.query(query, (err, results) => {
     if (err) {
