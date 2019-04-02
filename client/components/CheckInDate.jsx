@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Moment from 'react-moment';
+import moment from 'moment';
 import Calendar from './Calendar';
 
 class CheckInDate extends Component {
@@ -7,19 +9,24 @@ class CheckInDate extends Component {
     this.state = {
       checkInDate: `${new Date().getMonth() + 1}-${new Date().getDate()}-${new Date().getFullYear().toString().substr(-2)}`,
       modalOpen: false,
-      lowest: '',
-      secondLowest: '',
-      thirdLowest: '', // need to add updatePrices function somewhere, so the state actually holds the right lowest prices
+ // need to add updatePrices function somewhere, so the state actually holds the right lowest prices
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange(event) {
+  handleChange(date) {
+    const stringDate = date.toString();
+    console.log('stringDate: ', stringDate);
+    const formattedDate = moment(stringDate).format('M-DD-YYYY');
+    console.log(formattedDate);
     this.setState({
-      checkInDate: event.toString().substring(0, 15),
-      modalOpen: false,
+      checkInDate: formattedDate,
+      // modalOpen: false,
     });
+    this.props.updateDate(formattedDate);
+    this.props.getLowestPrices();
+    this.props.updatePrices(this.state);
   }
 
 
@@ -33,12 +40,15 @@ class CheckInDate extends Component {
     if (this.state.modalOpen === true) {
       return (
         <div>
-          <div onClick={this.props.updatePrices(this.state)}>
+          <div>
             <span>Check In</span>
             <br />
             <span>{this.state.checkInDate}</span>
           </div>
-          <Calendar />
+          <Calendar
+            // onChange={() => this.props.updatePrices(this.state)}
+            onChange={date => this.handleChange(date)}
+          />
         </div>
       );
     }
