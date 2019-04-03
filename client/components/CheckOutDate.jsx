@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Calendar from './Calendar';
+import moment from 'moment';
 
 class CheckOutDate extends Component {
   constructor(props) {
@@ -12,12 +14,15 @@ class CheckOutDate extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange(event) {
+  handleChange(date) {
+    const stringDate = date.toString();
+    const formattedDate = moment(stringDate).format('M-D-YYYY');
     this.setState({
-      checkOutDate: event.toString().substring(0, 15),
-      modalOpen: false,
+      checkOutDate: formattedDate,
     });
+    this.props.updateCheckout(formattedDate);
   }
+
 
   handleClick() {
     this.setState({
@@ -29,19 +34,22 @@ class CheckOutDate extends Component {
     if (this.state.modalOpen === true) {
       return (
         <div>
-          <div onClick={this.handleClick}>
-            <span>Check Out </span>
+          <div>
+            <span>Check Out</span>
             <br />
             <span>{this.state.checkOutDate}</span>
           </div>
-          {/* <Calendar onChange={this.handleChange} /> */}
+          <Calendar
+            // onChange={() => this.props.updatePrices(this.state)}
+            onChange={date => this.handleChange(date)}
+          />
         </div>
       );
     }
     return (
       <div>
         <div onClick={this.handleClick}>
-          <span>Check Out </span>
+          <span>Check Out</span>
           <br />
           <span>{this.state.checkOutDate}</span>
         </div>

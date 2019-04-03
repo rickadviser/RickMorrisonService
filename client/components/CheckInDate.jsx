@@ -17,14 +17,11 @@ class CheckInDate extends Component {
 
   handleChange(date) {
     const stringDate = date.toString();
-    console.log('stringDate: ', stringDate);
-    const formattedDate = moment(stringDate).format('M-DD-YYYY');
-    console.log(formattedDate);
+    const formattedDate = moment(stringDate).format('M-D-YYYY');
     this.setState({
       checkInDate: formattedDate,
-      // modalOpen: false,
     });
-    this.props.updateDate(formattedDate);
+    this.props.updateCheckin(formattedDate);
     this.props.getLowestPrices();
     this.props.updatePrices(this.state);
   }

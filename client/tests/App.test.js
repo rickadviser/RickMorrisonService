@@ -1,10 +1,10 @@
 import React from 'react';
-import Jest from 'jest';
+import Jest, { jest } from 'jest';
 import fetch from 'node-fetch';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { exportAllDeclaration, tsObjectKeyword } from '@babel/types';
-import App from './App';
+import App from '../components/App';
 
 configure({adapter: new Adapter()});
 
@@ -25,3 +25,12 @@ it('should render GuestSelector without errors', () => {
   const guestSelector = component.find(`[data-test='guestSelector']`);
   expect(guestSelector.length).toBe(1);
 })
+
+it('should get lowest prices on mount', () => {
+  const wrapper = shallow(<App />);
+  const getLowestPrices = jest.fn();
+  componentDidMount()
+  // expect(wrapper.state.lowest).not.toBe('');
+  expect(getLowestPrices).toHaveBeenCalled();
+})
+

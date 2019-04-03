@@ -9,7 +9,8 @@
   "scripts": {
     "start": "webpack --mode production --watch",
     "server": "nodemon server/index.js",
-    "test": "jest --detectOpenHandles"
+    "test": "jest --detectOpenHandles",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "adapter": "0.0.1",
