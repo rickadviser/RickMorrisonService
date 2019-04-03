@@ -59,24 +59,24 @@ class GuestModal extends Component {
       <div>
         <div>
           <span>Rooms</span>
-          <button type="button" onClick={this.decreaseRooms}>-</button>
+          <button type="button" id="decreaseRooms" onClick={this.decreaseRooms}>-</button>
           {this.state.rooms}
-          <button type="button" onClick={this.increaseRooms}>+</button>
+          <button type="button" id="increaseRooms" onClick={this.increaseRooms}>+</button>
         </div>
         <div>
           <span>Adults</span>
-          <button type="button" onClick={this.decreaseAdults}>-</button>
+          <button type="button" id="decreaseAdults" onClick={this.decreaseAdults}>-</button>
           {this.state.adults}
-          <button type="button" onClick={this.increaseAdults}>+</button>
+          <button type="button" id="increaseAdults" onClick={this.increaseAdults}>+</button>
         </div>
         <div>
           <span>Children</span>
-          <button type="button" onClick={this.decreaseChildren}>-</button>
+          <button type="button" id="decreaseChildren" onClick={this.decreaseChildren}>-</button>
           {this.state.children}
-          <button type="button" onClick={this.increaseChildren}>+</button>
+          <button type="button" id="increaseChildren" onClick={this.increaseChildren}>+</button>
         </div>
         <div>
-          <button type="button" onClick={() => this.props.handleUpdate(this.state)}>Update</button>
+          <button type="button" id="update" onClick={() => this.props.handleUpdate(this.state)}>Update</button>
         </div>
       </div>
     );

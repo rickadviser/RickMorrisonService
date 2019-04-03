@@ -6,31 +6,23 @@ import Week from './Week';
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
-    
     this.state = {
       month: moment(),
       selected: moment().startOf('day')
     };
-    
     this.previous = this.previous.bind(this);
     this.next = this.next.bind(this);
   }
-  
-  previous() {
-    const {
-      month,
-    } = this.state;
 
+  previous() {
+    const { month } = this.state;
     this.setState({
       month: month.subtract(1, 'month'),
     });
   }
 
   next() {
-    const {
-      month,
-    } = this.state;
-
+    const { month } = this.state;
     this.setState({
       month: month.add(1,'month'),
     });
@@ -51,10 +43,7 @@ class Calendar extends React.Component {
     let count = 0;
     let monthIndex = date.month();
 
-    const {
-      selected,
-      month,
-    } = this.state;
+    const { selected, month } = this.state;
 
     while (!done) {
       weeks.push(
@@ -75,9 +64,7 @@ class Calendar extends React.Component {
   };
 
   renderMonthLabel() {
-    const {
-      month,
-    } = this.state;
+    const { month } = this.state;
 
     return <span className="month-label">{month.format("MMMM YYYY")}</span>;
   }

@@ -9,6 +9,7 @@
   "scripts": {
     "start": "webpack --mode production --watch",
     "server": "nodemon server/index.js",
+    "seed": "node schema.sql",
     "test": "jest --detectOpenHandles",
     "test:coverage": "jest --coverage"
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import Jest, { jest } from 'jest';
 import fetch from 'node-fetch';
-import { shallow, configure } from 'enzyme';
+import { shallow, configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { exportAllDeclaration, tsObjectKeyword } from '@babel/types';
 import App from '../components/App';
@@ -27,10 +27,7 @@ it('should render GuestSelector without errors', () => {
 })
 
 it('should get lowest prices on mount', () => {
-  const wrapper = shallow(<App />);
-  const getLowestPrices = jest.fn();
-  componentDidMount()
-  // expect(wrapper.state.lowest).not.toBe('');
-  expect(getLowestPrices).toHaveBeenCalled();
+  const component = mount(<App />);
+  expect(component.state.lowest).not.toBe('');
+  // expect(getLowestPrices).toHaveBeenCalled();
 })
-
