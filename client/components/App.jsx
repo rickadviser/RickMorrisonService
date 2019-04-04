@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import fetch from 'node-fetch';
 import CheckInDate from './CheckInDate';
 import CheckOutDate from './CheckOutDate';
 import GuestSelector from './GuestSelector';
@@ -19,6 +20,8 @@ class App extends Component {
     };
     this.getLowestPrices = this.getLowestPrices.bind(this);
     this.updatePrices = this.updatePrices.bind(this);
+    this.updateCheckin = this.updateCheckin.bind(this);
+    this.updateCheckout = this.updateCheckout.bind(this);
   }
 
   componentDidMount() {
@@ -33,7 +36,6 @@ class App extends Component {
         const sortedArray = tupleArray.sort((a, b) => {
           return a[1] > b[1] ? 1 : -1;
         });
-        console.log(sortedArray);
         this.setState({
           lowest: sortedArray[1],
           secondLowest: sortedArray[2],
@@ -41,39 +43,62 @@ class App extends Component {
         });
       });
   }
-  
-  updatePrices(state) {
+
+  updatePrices({ lowest, secondLowest, thirdLowest }) {
     this.setState({
-      lowest: state.lowest,
-      secondLowest: state.secondLowest,
-      thirdLowest: state.thirdLowest,
+      lowest,
+      secondLowest,
+      thirdLowest,
+    });
+  }
+
+  updateCheckin(date) {
+    this.setState({
+      checkInDate: date,
+    });
+  }
+
+  updateCheckout(date) {
+    this.setState({
+      checkOutDate: date,
     });
   }
 
   render() {
+    // const { lowest, secondLowest, thirdLowest } = this.state;
     return (
       <div>
         <span>Lowest prices for your stay</span>
         <span>
           <CheckInDate
-            lowest={this.state.lowest}
-            secondLowest={this.state.secondLowest}
-            thirdLowest={this.state.thirdLowest}
             updatePrices={this.updatePrices}
+            getLowestPrices={this.getLowestPrices}
             checkInDate={this.state.checkInDate}
+            updateCheckin={this.updateCheckin}
+            data-test="checkInDate"
           />
           <CheckOutDate
-            lowest={this.state.lowest}
-            secondLowest={this.state.secondLowest}
-            thirdLowest={this.state.thirdLowest}
             checkOutDate={this.state.checkOutDate}
+            updateCheckout={this.updateCheckout}
+            updatePrices={this.updatePrices}
+            data-test="checkOutDate"
           />
           <GuestSelector
             rooms={this.state.rooms}
             adults={this.state.adults}
             children={this.state.children}
+            data-test="guestSelector"
           />
         </span>
+        <div>
+          {this.state.lowest}
+        </div>
+        <div>
+          {this.state.secondLowest}
+        </div>
+        <div>
+          {this.state.thirdLowest}
+        </div>
       </div>
     );
   }

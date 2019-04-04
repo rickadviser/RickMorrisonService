@@ -44,7 +44,7 @@ class GuestSelector extends Component {
     if (this.state.modalOpen === false) {
       return (
         <div onClick={this.handleClick}>
-          <span>Guests</span>
+          <span className="guests">Guests</span>
           <br />
           {this.state.rooms}
           {rooms}
@@ -58,7 +58,7 @@ class GuestSelector extends Component {
     return (
       <div>
         <div onClick={this.handleClick}>
-          <span>Guests</span>
+          <span className="guests">Guests</span>
           <br />
           {this.state.rooms}
           {rooms}

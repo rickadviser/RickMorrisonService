@@ -8,19 +8,27 @@
   },
   "scripts": {
     "start": "webpack --mode production --watch",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "seed": "node schema.sql",
+    "test": "jest --detectOpenHandles",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "adapter": "0.0.1",
     "body-parser": "^1.18.3",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",
     "moment": "^2.24.0",
     "mysql": "^2.16.0",
+    "node-fetch": "^2.3.0",
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
     "react-calendar": "^2.18.1",
     "react-date-picker": "^7.4.0",
     "react-datepicker": "^2.3.0",
-    "react-dom": "^16.8.5"
+    "react-dom": "^16.8.5",
+    "react-moment": "^0.8.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
