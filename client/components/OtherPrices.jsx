@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { otherPrices } from '../../public/css.css';
 
 class OtherPrices extends Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class OtherPrices extends Component {
 
   render() {
     return (
-      <div class="otherPrices">
+      <div className={otherPrices}>
         <div>
           <span>{this.props.fourthLowest[0]}...........${this.props.fourthLowest[1]}</span>
         <br />

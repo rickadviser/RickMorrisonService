@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import Calendar from './Calendar';
 import moment from 'moment';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
+import {checkInOut, checkIn, checkInBoxOpen, checkInBoxClosed, checkOut, checkOutBoxOpen, checkOutBoxClosed } from '../../public/css.css';
+
+library.add(faCalendarDay);
 
 class CheckOutDate extends Component {
   constructor(props) {
@@ -36,9 +42,9 @@ class CheckOutDate extends Component {
         return (
           <div>
             <div onClick={this.handleClick}>
-              <span class="checkOutBoxOpen">
-                {/* <FontAwesomeIcon icon="faCalendarDay" /> */}
-                <span>Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+              <span className={checkOutBoxOpen}>
+              <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
+                <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
               </span>
             </div>
             <Calendar
@@ -51,9 +57,9 @@ class CheckOutDate extends Component {
       return (
         <div>
           <div onClick={this.handleClick}>
-            <span class="checkOutBoxOpen">
-              {/* <FontAwesomeIcon icon="faCalendarDay" /> */}
-              <span>Check Out {this.state.checkOutDate}</span>
+            <span className={checkOutBoxOpen}>
+            <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
+              <span> Check Out {this.state.checkOutDate}</span>
             </span>
           </div>
           <Calendar
@@ -67,9 +73,9 @@ class CheckOutDate extends Component {
       return (
         <div>
         <div onClick={this.handleClick}>
-        <span class="checkOutBoxClosed">
-            {/* <FontAwesomeIcon icon="faCalendarDay" /> */}
-            <span>Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+        <span className={checkOutBoxClosed}>
+        <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
+            <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
           </span>
         </div>
       </div>
@@ -78,9 +84,9 @@ class CheckOutDate extends Component {
   return (
     <div>
     <div onClick={this.handleClick}>
-    <span class="checkOutBoxClosed">
-        {/* <FontAwesomeIcon icon="faCalendarDay" /> */}
-        <span>Check Out {this.state.checkOutDate}</span>
+    <span className={checkOutBoxClosed}>
+    <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
+        <span> Check Out {this.state.checkOutDate}</span>
       </span>
     </div>
   </div>

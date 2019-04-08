@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import GuestModal from './GuestModal';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
+import { guests, guestList, guestSelectorBox } from '../../public/css.css';
+library.add(faUserFriends)
 
 class GuestSelector extends Component {
   constructor(props) {
@@ -44,29 +49,35 @@ class GuestSelector extends Component {
 
     if (this.state.modalOpen === false) {
       return (
-        <div className="guestSelectorBox" onClick={this.handleClick}>
-          <span className="guests">Guests</span>
+        <div className={guestSelectorBox} onClick={this.handleClick}>
+          <FontAwesomeIcon icon="user-friends" size="sm" color="gray" />
+          <span className={guests}>Guests</span>
           <br />
-          {this.state.rooms}
-          {rooms}
-          {this.state.adults}
-          {adults}
-          {this.state.children}
-          {children}
+          <div className={guestList}>
+            {this.state.rooms}
+            {rooms}
+            {this.state.adults}
+            {adults}
+            {this.state.children}
+            {children}
+          </div>
         </div>
       );
     }
     return (
       <div>
-        <div className="guestSelectorBox" onClick={this.handleClick}>
-          <span className="guests">Guests</span>
+        <div className={guestSelectorBox} onClick={this.handleClick}>
+          <FontAwesomeIcon icon="user-friends" size="sm" color="gray" />
+          <span className={guests}>Guests</span>
           <br />
-          {this.state.rooms}
-          {rooms}
-          {this.state.adults}
-          {adults}
-          {this.state.children}
-          {children}
+          <div className={guestList}>
+            {this.state.rooms}
+            {rooms}
+            {this.state.adults}
+            {adults}
+            {this.state.children}
+            {children}
+          </div>
         </div>
         <GuestModal
           rooms={this.state.rooms}

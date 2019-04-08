@@ -7,21 +7,24 @@ import HotelsCom from '../assets/HotelsCom.png';
 import OfficialHotelSite from '../assets/OfficialHotelSite.gif';
 import TripAdvisor from '../assets/TripAdvisor.png';
 import Priceline from '../assets/Priceline.png';
+import { viewDeals, viewDealText, siteModule, sitePrice } from '../../public/css.css';
 
 const SiteDisplay = (props) => {
-  const viewDeal = (<div class="viewDeal">
-    <span class="viewDealText">
+  const viewDeal = (
+    <div className={viewDeals}>
+      <span className={viewDealText}>
       View Deal 
-    </span>
-  </div>)
+      </span>
+    </div>
+  );
   if (props.site) {
     if (props.site[0] === "OfficialHotelSite") {
       return (
-        <div class="siteModule">
+        <div className={siteModule} onClick={props.onClick}>
           <span>
             <img src={OfficialHotelSite} alt="OfficialHotelSite" width="120" height="45" />
           </span>
-          <span class="sitePrice">
+          <span className={sitePrice}>
             ${props.site[1]}
           </span>
           {viewDeal}
@@ -30,11 +33,11 @@ const SiteDisplay = (props) => {
     }
     if (props.site[0] === "Booking") {
       return (
-        <div class="siteModule">
+        <div className={siteModule} onClick={props.onClick}>
           <span>
             <img src={Booking} alt="Booking" height="45" />
           </span>
-          <span class="sitePrice">
+          <span className={sitePrice}>
             ${props.site[1]}
           </span>
           {viewDeal}
@@ -43,11 +46,11 @@ const SiteDisplay = (props) => {
     }
     if (props.site[0] === "Expedia") {
       return (
-        <div class="siteModule">
+        <div className={siteModule} onClick={props.onClick}>
           <span>
             <img src={Expedia} alt="Expedia" height="45" />
           </span>
-          <span class="sitePrice">
+          <span className={sitePrice}>
             ${props.site[1]}
           </span>
           {viewDeal}
@@ -56,11 +59,11 @@ const SiteDisplay = (props) => {
     }
     if (props.site[0] === "CheapTickets") {
       return (
-        <div class="siteModule">
+        <div className={siteModule} onClick={props.onClick}>
           <span>
             <img src={CheapTickets} alt="CheapTickets" height="45" />
           </span>
-          <span class="sitePrice">
+          <span className={sitePrice}>
             ${props.site[1]}
           </span>
           {viewDeal}
@@ -69,11 +72,11 @@ const SiteDisplay = (props) => {
     }
     if (props.site[0] === "Hotels") {
       return (
-        <div class="siteModule">
+        <div className={siteModule} onClick={props.onClick}>
           <span>
             <img src={HotelsCom} alt="HotelsCom" height="45" />
           </span>
-          <span class="sitePrice">
+          <span className={sitePrice}>
             ${props.site[1]}
           </span>
           {viewDeal}
@@ -82,11 +85,11 @@ const SiteDisplay = (props) => {
     }
     if (props.site[0] === "TripAdvisor") {
       return (
-        <div class="siteModule">
+        <div className={siteModule} onClick={props.onClick}>
           <span>
             <img src={TripAdvisor} alt="TripAdvisor" height="20" />
           </span>
-          <span class="sitePrice">
+          <span className={sitePrice}>
             ${props.site[1]}
           </span>
           {viewDeal}
@@ -95,11 +98,11 @@ const SiteDisplay = (props) => {
     }
     if (props.site[0] === "Priceline") {
       return (
-        <div class="siteModule">
+        <div className={siteModule} onClick={props.onClick}>
           <span>
             <img src={Priceline} alt="Priceline" height="45" />
           </span>
-          <span class="sitePrice">
+          <span className={sitePrice}>
             ${props.site[1]}
           </span>
           {viewDeal}

@@ -5,7 +5,13 @@ import CheckOutDate from './CheckOutDate';
 import GuestSelector from './GuestSelector';
 import SiteDisplay from './SiteDisplay';
 import OtherPrices from './OtherPrices';
+import '../assets/FontAwesomeIcons';
+import { wrapper, checkIn, checkInOut, checkOut, guestSelectorBox, siteBoxes, siteDisplay } from '../../public/css.css';
 
+
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { faIgloo } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class App extends Component {
   constructor(props) {
@@ -75,11 +81,11 @@ class App extends Component {
   render() {
     // const { lowest, secondLowest, thirdLowest } = this.state;
     return (
-      <div>
+      <div className={wrapper}>
         <span>Lowest prices for your stay</span>
         <span>
-          <div className="checkInOut">
-            <span className="checkIn">
+          <div className={checkInOut}>
+            <span className={checkIn}>
               <CheckInDate
                 updatePrices={this.updatePrices}
                 getLowestPrices={this.getLowestPrices}
@@ -88,7 +94,7 @@ class App extends Component {
                 data-test="checkInDate"
               />
             </span>
-            <span className="checkOut">
+            <span className={checkOut}>
               <CheckOutDate
                 checkOutDate={this.state.checkOutDate}
                 updateCheckout={this.updateCheckout}
@@ -97,7 +103,7 @@ class App extends Component {
               />
             </span>
           </div>
-          <div className="guestSelectorBox">
+          <div className={guestSelectorBox}>
             <GuestSelector
               rooms={this.state.rooms}
               adults={this.state.adults}
@@ -107,19 +113,19 @@ class App extends Component {
             />
           </div>
         </span>
-        <div className="siteBoxes">
-          <div className="siteDisplay">
+        <div className={siteBoxes}>
+          <div className={siteDisplay}>
             <SiteDisplay
               site={this.state.lowest}
-              href=""
+              onClick={() => window.location.reload()}
             />
           </div>
-          <div className="siteDisplay">
+          <div className={siteDisplay}>
             <SiteDisplay
               site={this.state.secondLowest}
             />
           </div>
-          <div className="siteDisplay">
+          <div className={siteDisplay}>
             <SiteDisplay
               site={this.state.thirdLowest}
             />

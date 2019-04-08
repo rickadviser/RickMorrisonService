@@ -9,7 +9,8 @@
 } */
 
 body {
-    background: #EFEFEF;
+    background: white;
+    font-family: Arial, sans-serif;
 }
 
 .row {
@@ -17,6 +18,92 @@ body {
     width: 100%;
 }
 
+.calendar header {
+  color: black;
+  cursor: default;
+  font-size:1.2rem;
+  display: block;
+  /* font-weight: bold; */
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.calendar header .monthDisplay {
+  align-items: center;
+  height: 40px;
+  background: white;
+}
+
+.calendar header .monthLabel {
+  flex: 1;
+}
+.calendar header .arrow {
+  text-align: center;
+  flex-basis: 15%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background .2s;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar header .arrow:hover {
+  background: #CCCCCC
+}
+
+.calendar .week {
+  border-top: solid 1px #CCCCCC
+}
+
+.calendar .dayNames {
+  display: flex;
+  width: 100%;
+  color: black;
+  /* font-weight: bold; */
+  cursor: default;
+  font-size: 0.9rem;
+}
+
+.calendar .dayNames .day {
+  cursor: default;
+}
+
+.calendar .dayNames .day:hover {
+  background: inherit;
+}
+
+.calendar .days {
+  flex: 1;
+  height: 35px;
+  border-left: solid 1px #CCCCCC;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.calendar .days:hover {
+  background: rgb(113, 177, 129);
+}
+
+.calendar .days:first-child {
+  border-left:none;
+}
+
+.calendar .days.today {
+  background: #EFEFEF;
+}
+
+.calendar .days.differentMonth {
+  color: #C0C0C0
+}
+
+.calendar .days.selected {
+  background: white;
+  border: 1px solid rgb(113, 177, 129);
+  color: black;
+}
+  
 .calendar {
     display: block;
     background:white;
@@ -26,66 +113,8 @@ body {
     box-shadow: 0 0 15px 0 #C0C0C0;
     font-size: 1.2rem;
     text-align: center;
-
-    header {
-        .vertical-center;
-        color: black;
-        cursor: default;
-        font-size:1.2rem;
-        display: block;
-        /* font-weight: bold; */
-        text-transform: uppercase;
-        user-select: none;
-        
-        .month-display {
-            align-items: center;
-            height: 40px;
-            background: white;
-        }
-
-        .month-label { 
-           flex: 1;
-        }
-      
-        .arrow {
-            text-align: center;
-            flex-basis: 15%;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background .2s;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          
-            &:hover {
-                background: #CCCCCC;
-            }
-        }
-    }
   
-    .week {
-        border-top: solid 1px #CCCCCC;
-    }
-  
-    .day-names {
-        color: black;
-        /* font-weight: bold; */
-        cursor: default;
-        font-size: 0.9rem;
-        
-        .day {
-            cursor: default;
-            
-            &:hover {
-                background: inherit;
-
-            }
-        }
-    }
-  
-    .day {
-        .vertical-center;
+    /* .days {
         flex: 1;
         height: 35px;
         border-left: solid 1px #CCCCCC;
@@ -113,114 +142,8 @@ body {
             border: 1px solid rgb(113, 177, 129);
             color: black;
         }
-    }
+    } */
 }
 
-.viewDeal {
-  display: flex;
-  justify-content: center;
-  justify-items: right;
-  align-content: center;
-  align-items: center;
-  background: rgb(255, 217, 0);
-  color: black;
-  width: 90px;
-  height: 47px;
-  border: solid 1px rgb(260, 217, 0);
-}
 
-.viewDealText {
-  font-weight: bold;
-  font-size: 12px;
-}
 
-.siteDisplay {
-  display: flex;
-  justify-content: space-between;
-}
-
-.siteModule {
-  display: flex;
-  width: 300px;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  border: solid .5px gray;
-  border-radius: 1px;
-  margin: 3px;
-}
-
-.siteBoxes {
-  display: flex wrap;
-  justify-content: space-between;
-  align-content: space-between;
-  height: 175px;
-}
-
-.checkInOut {
-  display: flex;
-  align-content: center;
-  align-items: center;
-}
-
-.checkIn {
-  padding: 5px;
-}
-
-.checkInBoxOpen {
-  width: 500px;
-  font-size: 10px;
-  border: solid 1px rgb(113, 177, 129);
-  border-radius: 3px;
-  padding: 5px;
-}
-
-.checkInBoxClosed {
-  width: 500px;
-  font-size: 10px;
-  border: solid 1px gray;
-  border-radius: 3px;
-  padding: 5px;
-}
-
-.checkOut {
-  padding: 5px;
-}
-
-.checkOutBoxOpen {
-  width: 500px;
-  font-size: 10px;
-  border: solid 1px orange;
-  border-radius: 3px;
-  padding: 5px;
-}
-
-.checkOutBoxClosed {
-  width: 500px;
-  height: 50px;
-  font-size: 10px;
-  border: solid 1px gray;
-  border-radius: 3px;
-  padding: 5px;
-}
-
-.sitePrice {
-  padding: 10px;
-}
-
-.otherPrices {
-  display: flex;
-  color: blue;
-  font-size: 10px;
-}
-
-.guestSelectorBox {
-  border: solid .5px gray;
-  border-radius: 3px;
-  width: 300px;
-}
-
-.guests {
-  font-size: 12px;
-  color: gray;
-}

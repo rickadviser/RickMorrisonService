@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Day from './Day';
+import { row, week } from '../../public/calendar-css.css';
 
 class Week extends React.Component {
 render() {
@@ -31,7 +32,7 @@ render() {
   }
 
   return (
-    <div className="row week" key={days[0]}>
+    <div className={`${row} ${week}`} key={days[0]}>
       {days}
     </div>
   );
