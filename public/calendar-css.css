@@ -1,27 +1,16 @@
-//variables & mixins
-@white: #FFFFFF;
-@ltGrey: #EFEFEF;
-@mdGrey: #C0C0C0;
-@dkGrey: #CCCCCC;
-@secondary:#2875C7;
-@dkSecondary: darken(@secondary,10%);
-@ltSecondary: lighten(@secondary,45%);
-@borderColor: @dkGrey;
-@background: @white;
-
 .vertical-center {
   display: flex;
   justify-content:center;
   align-items: center;
 }
 
-// meat of the matter
-html {
+/* html {
     font-size: 62.5%;
-}
+} */
 
 body {
-    background: @ltGrey;
+    background: white;
+    font-family: Arial, sans-serif;
 }
 
 .row {
@@ -29,87 +18,112 @@ body {
     width: 100%;
 }
 
+.calendar header {
+  color: black;
+  cursor: default;
+  font-size:1.2rem;
+  display: block;
+  /* font-weight: bold; */
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.calendar header .monthDisplay {
+  align-items: center;
+  height: 40px;
+  background: white;
+}
+
+.calendar header .monthLabel {
+  flex: 1;
+}
+.calendar header .arrow {
+  text-align: center;
+  flex-basis: 15%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background .2s;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar header .arrow:hover {
+  background: #CCCCCC
+}
+
+
+.calendar .week {
+  border-top: solid 1px #CCCCCC
+}
+
+.calendar .dayNames {
+  display: flex;
+  width: 100%;
+  color: black;
+  /* font-weight: bold; */
+  cursor: default;
+  font-size: 0.9rem;
+}
+
+.calendar .dayNames .day {
+  cursor: default;
+}
+
+.calendar .dayNames .day:hover {
+  background: inherit;
+}
+
+.calendar .days {
+  flex: 1;
+  height: 35px;
+  border-left: solid 1px #CCCCCC;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.calendar .days:hover {
+  background: rgb(113, 177, 129);
+}
+
+.calendar .days:first-child {
+  border-left:none;
+}
+
+.calendar .days.today {
+  background: #EFEFEF;
+}
+
+.calendar .days.differentMonth {
+  color: #C0C0C0
+}
+
+.calendar .days.selected {
+  background: white;
+  border: 1px solid rgb(113, 177, 129);
+  color: black;
+}
+  
 .calendar {
     display: block;
-    background:@white;
+    background:white;
     width: 300px;
-    border: solid 1px @borderColor;
+    border: solid 1px #CCCCCC;
     margin: 10px auto;
-    box-shadow: 0 0 15px 0 @mdGrey;
-    font-size: 1.3rem;
+    box-shadow: 0 0 15px 0 #C0C0C0;
+    font-size: 1.2rem;
     text-align: center;
-
-    header {
-        .vertical-center;
-        color: @white;
-        cursor: default;
-        font-size:1.4rem;
-        display: block;
-        font-weight: bold;
-        text-transform: uppercase;
-        user-select: none;
-        
-        .month-display {
-            align-items: center;
-            height: 40px;
-            background: @secondary;
-        }
-
-        .month-label { 
-           flex: 1;
-        }
-      
-        .arrow {
-            text-align: center;
-            flex-basis: 15%;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background .2s;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          
-            &:hover {
-                background: @dkSecondary;
-            }
-        }
-    }
   
-    .week {
-        border-top: solid 1px @borderColor;
-
-        &:first-child {
-            border-top: none;
-        }
-    }
-  
-    .day-names {
-        color: @secondary;
-        font-weight: bold;
-        cursor: default;
-        font-size: 1.2rem;
-        
-        .day {
-            cursor: default;
-            
-            &:hover {
-                background: inherit;
-
-            }
-        }
-    }
-  
-    .day {
-        .vertical-center;
+    /* .days {
         flex: 1;
         height: 35px;
-        border-left: solid 1px @borderColor;
+        border-left: solid 1px #CCCCCC;
         cursor: pointer;
         transition: all .2s;
 
         &:hover {
-            background: @ltGrey;
+            background: rgb(113, 177, 129);
         }
 
         &:first-child {
@@ -117,16 +131,20 @@ body {
         }
 
         &.today {
-            background: @ltSecondary;
+            background: #EFEFEF;
         }
 
         &.different-month {
-            color: @mdGrey;
+            color: #C0C0C0;
         }
 
         &.selected {
-            background: @secondary;
-            color: @white;
+            background: white;
+            border: 1px solid rgb(113, 177, 129);
+            color: black;
         }
-    }
+    } */
 }
+
+
+

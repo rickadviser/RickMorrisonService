@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import { calendar, header, monthDisplay, monthLabel, arrow } from '../../public/calendar-css.css';
 import DayNames from './DayNames';
 import Week from './Week';
 
@@ -47,11 +48,13 @@ class Calendar extends React.Component {
 
     while (!done) {
       weeks.push(
-        <Week key={date} 
+        <Week
+          key={date} 
           date={date.clone()} 
           month={month} 
           select={(day)=>this.select(day)} 
-          selected={selected} />
+          selected={selected}
+        />
       );
 
       date.add(1, "w");
@@ -66,24 +69,18 @@ class Calendar extends React.Component {
   renderMonthLabel() {
     const { month } = this.state;
 
-    return <span className="month-label">{month.format("MMMM YYYY")}</span>;
-  }
-
-  renderNextMonthLabel() {
-    const month = this.state.month.add(1, 'month');
-
-    return <span className="next-month-label">{month.format("MMMM YYYY")}</span>;
+    return <span className={monthLabel}>{month.format("MMMM YYYY")}</span>;
   }
 
   render() {
     return (
-      <section className="calendar">
+      <section className={calendar}>
         <div>Select a date to continue</div>
-        <header className="header">
-          <div className="month-display row">
-            <i className="arrow fa fa-angle-left" onClick={this.previous}/>
+        <header className={header}>
+          <div className={monthDisplay}>
+            <i className={`${arrow} fa fa-angle-left`} onClick={this.previous}/>
             {this.renderMonthLabel()}
-            <i className="arrow fa fa-angle-right" onClick={this.next}/>
+            <i className={`${arrow} fa fa-angle-right`} onClick={this.next}/>
           </div>
           <DayNames />
         </header>

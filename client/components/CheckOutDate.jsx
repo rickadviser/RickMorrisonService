@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import Calendar from './Calendar';
 import moment from 'moment';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
+import {checkInOut, checkIn, checkInBoxOpen, checkInBoxClosed, checkOut, checkOutBoxOpen, checkOutBoxClosed } from '../../public/css.css';
+
+library.add(faCalendarDay);
 
 class CheckOutDate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checkOutDate: '',
+      checkOutDate: '__/__/__',
       modalOpen: false,
       // `${new Date().getMonth() + 1}/${new Date().getDate() + 1}/${new Date().getFullYear().toString().substr(-2)}`,
     };
@@ -32,12 +38,29 @@ class CheckOutDate extends Component {
 
   render() {
     if (this.state.modalOpen === true) {
+      if (this.state.checkOutDate !== '__/__/__') {
+        return (
+          <div>
+            <div onClick={this.handleClick}>
+              <span className={checkOutBoxOpen}>
+              <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
+                <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+              </span>
+            </div>
+            <Calendar
+              // onChange={() => this.props.updatePrices(this.state)}
+              onChange={date => this.handleChange(date)}
+            />
+          </div>
+        );
+      }
       return (
         <div>
-          <div>
-            <span>Check Out</span>
-            <br />
-            <span>{this.state.checkOutDate}</span>
+          <div onClick={this.handleClick}>
+            <span className={checkOutBoxOpen}>
+            <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
+              <span> Check Out {this.state.checkOutDate}</span>
+            </span>
           </div>
           <Calendar
             // onChange={() => this.props.updatePrices(this.state)}
@@ -46,15 +69,28 @@ class CheckOutDate extends Component {
         </div>
       );
     }
-    return (
-      <div>
+    if (this.state.checkOutDate !== '__/__/__') {
+      return (
+        <div>
         <div onClick={this.handleClick}>
-          <span>Check Out</span>
-          <br />
-          <span>{this.state.checkOutDate}</span>
+        <span className={checkOutBoxClosed}>
+        <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
+            <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+          </span>
         </div>
       </div>
     );
+  }
+  return (
+    <div>
+    <div onClick={this.handleClick}>
+    <span className={checkOutBoxClosed}>
+    <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
+        <span> Check Out {this.state.checkOutDate}</span>
+      </span>
+    </div>
+  </div>
+);
   }
 }
 

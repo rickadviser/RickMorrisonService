@@ -1,0 +1,122 @@
+.wrapper {
+  display: flex wrap;
+  justify-content: space-around;
+  justify-items: space-around;
+  border: solid 1px #CCCCCC;
+  width: 400px;
+}
+
+
+.viewDeals {
+  display: flex;
+  justify-content: center;
+  justify-items: right;
+  align-content: center;
+  align-items: center;
+  background: rgb(255, 217, 0);
+  color: black;
+  width: 90px;
+  height: 47px;
+  border: solid 1px rgb(260, 217, 0);
+}
+
+
+.viewDealText {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.siteDisplay {
+  display: flex;
+  justify-content: space-between;
+}
+
+.siteModule {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  border: solid .5px gray;
+  border-radius: 1px;
+  margin: 3px;
+}
+
+.siteBoxes {
+  display: flex wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 175px;
+}
+
+.checkInOut {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.checkIn {
+  padding: 5px;
+}
+
+.checkInBoxOpen {
+  width: 500px;
+  font-size: 12px;
+  border: solid 1px rgb(113, 177, 129);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.checkInBoxClosed {
+  width: 500px;
+  font-size: 12px;
+  border: solid 1px gray;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.checkOut {
+  padding: 5px;
+}
+
+.checkOutBoxOpen {
+  width: 500px;
+  font-size: 12px;
+  border: solid 1px orange;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.checkOutBoxClosed {
+  width: 500px;
+  height: 50px;
+  font-size: 12px;
+  border: solid 1px gray;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.sitePrice {
+  padding: 10px;
+}
+
+.otherPrices {
+  display: flex;
+  color: blue;
+  font-size: 10px;
+}
+
+.guestSelectorBox {
+  border: solid .5px gray;
+  border-radius: 3px;
+  width: 300px;
+}
+
+.guests {
+  font-size: 10px;
+}
+
+.guestList {
+  font-size: 12px;
+  font-weight: bold;
+}
