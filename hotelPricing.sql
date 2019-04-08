@@ -19,6 +19,12 @@
 -- Table structure for table `hotelpricing`
 --
 
+DROP DATABASE IF EXISTS pricing;
+
+CREATE DATABASE pricing;
+
+USE pricing;
+
 DROP TABLE IF EXISTS `hotelpricing`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
