@@ -78,9 +78,9 @@ class Calendar extends React.Component {
         <div>Select a date to continue</div>
         <header className={header}>
           <div className={monthDisplay}>
-            <i className={`${arrow} fa fa-angle-left`} onClick={this.previous}/>
+            {/* <i className={`${arrow} fa fa-angle-left`} onClick={this.previous}/> */}
             {this.renderMonthLabel()}
-            <i className={`${arrow} fa fa-angle-right`} onClick={this.next}/>
+            {/* <i className={`${arrow} fa fa-angle-right`} onClick={this.next}/> */}
           </div>
           <DayNames />
         </header>

@@ -8,7 +8,7 @@ class OtherPrices extends Component {
 
   render() {
     return (
-      <div className={otherPrices}>
+      <div className={otherPrices} onClick={this.props.onClick}>
         <div>
           <span>{this.props.fourthLowest[0]}...........${this.props.fourthLowest[1]}</span>
         <br />

@@ -44,6 +44,7 @@
 
 .siteBoxes {
   display: flex wrap;
+  justify-items: center;
   justify-content: space-between;
   align-content: space-between;
   height: 175px;
@@ -51,8 +52,7 @@
 
 .checkInOut {
   display: flex;
-  align-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .checkIn {
@@ -73,6 +73,23 @@
   border: solid 1px gray;
   border-radius: 3px;
   padding: 5px;
+  margin-bottom: 50px;
+}
+
+.checkInColorBox {
+  display: inline-block;
+  background: green;
+  width: 10px;
+  height: 25px;
+  border-radius: 3px;
+}
+
+.checkOutColorBox {
+  display: inline-block;
+  background: red;
+  width: 10px;
+  height: 25px;
+  border-radius: 3px;
 }
 
 .checkOut {
@@ -82,7 +99,7 @@
 .checkOutBoxOpen {
   width: 500px;
   font-size: 12px;
-  border: solid 1px orange;
+  border: solid 1px red;
   border-radius: 3px;
   padding: 5px;
 }
@@ -94,6 +111,7 @@
   border: solid 1px gray;
   border-radius: 3px;
   padding: 5px;
+  margin-top: 50px;
 }
 
 .sitePrice {
@@ -119,4 +137,9 @@
 .guestList {
   font-size: 12px;
   font-weight: bold;
+}
+
+.lowestPrices {
+  display: flex;
+  justify-content: center;
 }

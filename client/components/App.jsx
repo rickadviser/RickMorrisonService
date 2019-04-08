@@ -6,7 +6,7 @@ import GuestSelector from './GuestSelector';
 import SiteDisplay from './SiteDisplay';
 import OtherPrices from './OtherPrices';
 import '../assets/FontAwesomeIcons';
-import { wrapper, checkIn, checkInOut, checkOut, guestSelectorBox, siteBoxes, siteDisplay } from '../../public/css.css';
+import { wrapper, checkIn, checkInOut, checkOut, guestSelectorBox, siteBoxes, siteDisplay, lowestPrices } from '../../public/css.css';
 
 
 // import { library } from '@fortawesome/fontawesome-svg-core';
@@ -43,19 +43,19 @@ class App extends Component {
     fetch(`http://localhost:8080/prices/${this.state.checkInDate}`)
       .then(res => res.json())
       .then((data) => {
-        const tupleArray = Object.entries(data.result[0]);
-        const sortedArray = tupleArray.sort((a, b) => {
-          return a[1] > b[1] ? 1 : -1;
-        });
-        this.setState({
-          lowest: sortedArray[1],
-          secondLowest: sortedArray[2],
-          thirdLowest: sortedArray[3],
-          fourthLowest: sortedArray[4],
-          fifthLowest: sortedArray[5],
-          sixthLowest: sortedArray[6],
-        });
-      });
+            const tupleArray = Object.entries(data.result[0]);
+            const sortedArray = tupleArray.sort((a, b) => {
+              return a[1] > b[1] ? 1 : -1;
+            });
+            this.setState({
+              lowest: sortedArray[1],
+              secondLowest: sortedArray[2],
+              thirdLowest: sortedArray[3],
+              fourthLowest: sortedArray[4],
+              fifthLowest: sortedArray[5],
+              sixthLowest: sortedArray[6],
+            });
+        });        
   }
 
   updatePrices({ lowest, secondLowest, thirdLowest }) {
@@ -82,7 +82,7 @@ class App extends Component {
     // const { lowest, secondLowest, thirdLowest } = this.state;
     return (
       <div className={wrapper}>
-        <span>Lowest prices for your stay</span>
+        <span className={lowestPrices}>Lowest prices for your stay</span>
         <span>
           <div className={checkInOut}>
             <span className={checkIn}>
@@ -123,11 +123,13 @@ class App extends Component {
           <div className={siteDisplay}>
             <SiteDisplay
               site={this.state.secondLowest}
+              onClick={() => window.location.reload()}
             />
           </div>
           <div className={siteDisplay}>
             <SiteDisplay
               site={this.state.thirdLowest}
+              onClick={() => window.location.reload()}
             />
           </div>
         </div>
@@ -136,6 +138,7 @@ class App extends Component {
             fourthLowest={this.state.fourthLowest}
             fifthLowest={this.state.fifthLowest}
             sixthLowest={this.state.sixthLowest}
+            onClick={() => window.location.reload()}
           />
         </div>
       </div>
