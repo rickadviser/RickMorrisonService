@@ -3,6 +3,8 @@ import fetch from 'node-fetch';
 import CheckInDate from './CheckInDate';
 import CheckOutDate from './CheckOutDate';
 import GuestSelector from './GuestSelector';
+import SiteDisplay from './SiteDisplay';
+import OtherPrices from './OtherPrices';
 
 
 class App extends Component {
@@ -17,6 +19,9 @@ class App extends Component {
       lowest: '',
       secondLowest: '',
       thirdLowest: '',
+      fourthLowest: '',
+      fifthLowest: '',
+      sixthLowest: '',
     };
     this.getLowestPrices = this.getLowestPrices.bind(this);
     this.updatePrices = this.updatePrices.bind(this);
@@ -40,6 +45,9 @@ class App extends Component {
           lowest: sortedArray[1],
           secondLowest: sortedArray[2],
           thirdLowest: sortedArray[3],
+          fourthLowest: sortedArray[4],
+          fifthLowest: sortedArray[5],
+          sixthLowest: sortedArray[6],
         });
       });
   }
@@ -70,34 +78,59 @@ class App extends Component {
       <div>
         <span>Lowest prices for your stay</span>
         <span>
-          <CheckInDate
-            updatePrices={this.updatePrices}
-            getLowestPrices={this.getLowestPrices}
-            checkInDate={this.state.checkInDate}
-            updateCheckin={this.updateCheckin}
-            data-test="checkInDate"
-          />
-          <CheckOutDate
-            checkOutDate={this.state.checkOutDate}
-            updateCheckout={this.updateCheckout}
-            updatePrices={this.updatePrices}
-            data-test="checkOutDate"
-          />
-          <GuestSelector
-            rooms={this.state.rooms}
-            adults={this.state.adults}
-            children={this.state.children}
-            data-test="guestSelector"
-          />
+          <div className="checkInOut">
+            <span className="checkIn">
+              <CheckInDate
+                updatePrices={this.updatePrices}
+                getLowestPrices={this.getLowestPrices}
+                checkInDate={this.state.checkInDate}
+                updateCheckin={this.updateCheckin}
+                data-test="checkInDate"
+              />
+            </span>
+            <span className="checkOut">
+              <CheckOutDate
+                checkOutDate={this.state.checkOutDate}
+                updateCheckout={this.updateCheckout}
+                updatePrices={this.updatePrices}
+                data-test="checkOutDate"
+              />
+            </span>
+          </div>
+          <div className="guestSelectorBox">
+            <GuestSelector
+              rooms={this.state.rooms}
+              adults={this.state.adults}
+              children={this.state.children}
+              updatePrices={this.updatePrices}
+              data-test="guestSelector"
+            />
+          </div>
         </span>
-        <div>
-          {this.state.lowest}
+        <div className="siteBoxes">
+          <div className="siteDisplay">
+            <SiteDisplay
+              site={this.state.lowest}
+              href=""
+            />
+          </div>
+          <div className="siteDisplay">
+            <SiteDisplay
+              site={this.state.secondLowest}
+            />
+          </div>
+          <div className="siteDisplay">
+            <SiteDisplay
+              site={this.state.thirdLowest}
+            />
+          </div>
         </div>
         <div>
-          {this.state.secondLowest}
-        </div>
-        <div>
-          {this.state.thirdLowest}
+          <OtherPrices
+            fourthLowest={this.state.fourthLowest}
+            fifthLowest={this.state.fifthLowest}
+            sixthLowest={this.state.sixthLowest}
+          />
         </div>
       </div>
     );

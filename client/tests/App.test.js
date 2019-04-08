@@ -29,5 +29,4 @@ it('should render GuestSelector without errors', () => {
 it('should get lowest prices on mount', () => {
   const component = mount(<App />);
   expect(component.state.lowest).not.toBe('');
-  // expect(getLowestPrices).toHaveBeenCalled();
 })

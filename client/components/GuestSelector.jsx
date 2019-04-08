@@ -22,6 +22,7 @@ class GuestSelector extends Component {
   }
 
   handleUpdate(state) {
+    this.props.updatePrices(state);
     this.setState(state);
   }
 
@@ -43,7 +44,7 @@ class GuestSelector extends Component {
 
     if (this.state.modalOpen === false) {
       return (
-        <div onClick={this.handleClick}>
+        <div className="guestSelectorBox" onClick={this.handleClick}>
           <span className="guests">Guests</span>
           <br />
           {this.state.rooms}
@@ -57,7 +58,7 @@ class GuestSelector extends Component {
     }
     return (
       <div>
-        <div onClick={this.handleClick}>
+        <div className="guestSelectorBox" onClick={this.handleClick}>
           <span className="guests">Guests</span>
           <br />
           {this.state.rooms}

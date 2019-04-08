@@ -4,9 +4,7 @@ import Day from './Day';
 class Week extends React.Component {
 render() {
   let days = [];
-  let {
-    date,
-  } = this.props;
+  let { date } = this.props;
   
   const {
     month,
