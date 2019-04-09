@@ -6,8 +6,11 @@ import GuestSelector from './GuestSelector';
 import SiteDisplay from './SiteDisplay';
 import OtherPrices from './OtherPrices';
 import '../assets/FontAwesomeIcons';
-import { wrapper, checkIn, checkInOut, checkOut, guestSelectorBox, siteBoxes, siteDisplay, lowestPrices } from '../../public/css.css';
-
+import { wrapper, checkIn, checkInOut, checkOut, guestSelectorBox, siteBoxes, siteDisplay, viewingHotel } from '../../public/css.css';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserFriends} from '@fortawesome/free-solid-svg-icons';
+library.add(faUserFriends)
 
 // import { library } from '@fortawesome/fontawesome-svg-core';
 // import { faIgloo } from '@fortawesome/free-solid-svg-icons';
@@ -82,10 +85,11 @@ class App extends Component {
     // const { lowest, secondLowest, thirdLowest } = this.state;
     return (
       <div className={wrapper}>
-        <span className={lowestPrices}>Lowest prices for your stay</span>
+        <span className={viewingHotel}>
+        <FontAwesomeIcon icon="user-friends" />
+        12 people are viewing this hotel</span>
         <span>
           <div className={checkInOut}>
-            <span className={checkIn}>
               <CheckInDate
                 updatePrices={this.updatePrices}
                 getLowestPrices={this.getLowestPrices}
@@ -93,16 +97,14 @@ class App extends Component {
                 updateCheckin={this.updateCheckin}
                 data-test="checkInDate"
               />
-            </span>
-            <span className={checkOut}>
               <CheckOutDate
                 checkOutDate={this.state.checkOutDate}
                 updateCheckout={this.updateCheckout}
                 updatePrices={this.updatePrices}
                 data-test="checkOutDate"
               />
-            </span>
           </div>
+          <br/>
           <div className={guestSelectorBox}>
             <GuestSelector
               rooms={this.state.rooms}
@@ -113,6 +115,7 @@ class App extends Component {
             />
           </div>
         </span>
+        <br/>
         <div className={siteBoxes}>
           <div className={siteDisplay}>
             <SiteDisplay

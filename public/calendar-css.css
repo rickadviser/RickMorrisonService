@@ -30,12 +30,13 @@ body {
 
 .calendar header .monthDisplay {
   align-items: center;
-  height: 40px;
+  height: 30px;
   background: white;
 }
 
 .calendar header .monthLabel {
   flex: 1;
+  text-transform: capitalize;
 }
 .calendar header .arrow {
   text-align: center;
@@ -77,7 +78,7 @@ body {
 
 .calendar .days {
   flex: 1;
-  height: 35px;
+  height: 25px;
   border-left: solid 1px #CCCCCC;
   cursor: pointer;
   transition: all .2s;

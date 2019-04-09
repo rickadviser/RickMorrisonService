@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserFriends, faBed, faChild } from '@fortawesome/free-solid-svg-icons';
+import { updateButton, modalButtons, plusMinusButtons } from '../../public/css.css';
 library.add(faUserFriends);
 library.add(faBed);
 library.add(faChild);
@@ -62,30 +63,33 @@ class GuestModal extends Component {
 
   render() {
     return (
-      <div>
+      <div className={modalButtons}>
         <div>
           <FontAwesomeIcon icon="bed" color="gray" />
           <span>Rooms</span>
-          <button type="button" id="decreaseRooms" onClick={this.decreaseRooms}>-</button>
+          <button type="button" className={plusMinusButtons} id="decreaseRooms" onClick={this.decreaseRooms}>-</button>
           {this.state.rooms}
-          <button type="button" id="increaseRooms" onClick={this.increaseRooms}>+</button>
+          <button type="button" className={plusMinusButtons} id="increaseRooms" onClick={this.increaseRooms}>+</button>
         </div>
+        <br/>
         <div>
           <FontAwesomeIcon icon="user-friends" color="gray" />
           <span>Adults</span>
-          <button type="button" id="decreaseAdults" onClick={this.decreaseAdults}>-</button>
+          <button type="button" className={plusMinusButtons} id="decreaseAdults" onClick={this.decreaseAdults}>-</button>
           {this.state.adults}
-          <button type="button" id="increaseAdults" onClick={this.increaseAdults}>+</button>
+          <button type="button" className={plusMinusButtons} id="increaseAdults" onClick={this.increaseAdults}>+</button>
         </div>
+        <br/>
         <div>
           <FontAwesomeIcon icon="child" color="gray" />
           <span>Children</span>
-          <button type="button" id="decreaseChildren" onClick={this.decreaseChildren}>-</button>
+          <button type="button" className={plusMinusButtons} id="decreaseChildren" onClick={this.decreaseChildren}>-</button>
           {this.state.children}
-          <button type="button" id="increaseChildren" onClick={this.increaseChildren}>+</button>
+          <button type="button" className={plusMinusButtons} id="increaseChildren" onClick={this.increaseChildren}>+</button>
         </div>
+        <br/>
         <div>
-          <button type="button" id="update" onClick={() => this.props.handleUpdate(this.state)}>Update</button>
+          <button type="button" id="update" className={updateButton} onClick={() => this.props.handleUpdate(this.state)}>Update</button>
         </div>
       </div>
     );
