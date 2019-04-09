@@ -1,10 +1,10 @@
-.wrapper {
-  /* display: flex; */
+/* .wrapper {
+  display: flex;
   text-align: center;
   border: solid 1px #CCCCCC;
   width: 320px;
   padding: 5px;
-}
+} */
 
 
 .viewDeals {
@@ -62,10 +62,15 @@
   padding: 5px;
 }
 
+.checkInDiv {
+  position: relative;
+}
+
 .checkInBoxOpen {
+  position: relative;
   display: inline-block;
   align-content: center;
-  width: 120px;
+  width: 55%;
   font-size: 12px;
   border: solid 1px rgb(113, 177, 129);
   border-radius: 3px;
@@ -73,9 +78,10 @@
 }
 
 .checkInBoxClosed {
+  position: relative;
   display: inline-block;
   align-content: center;
-  width:120px;
+  width:100%;
   font-size: 12px;
   border: solid 1px gray;
   border-radius: 3px;
@@ -84,18 +90,20 @@
 }
 
 .checkInColorBox {
+  position: absolute;
   display: inline-block;
   background: green;
-  width: 10px;
-  height: 35px;
+  width: 7px;
+  height: 100%;
   border-radius: 3px;
 }
 
 .checkOutColorBox {
+  position: absolute;
   display: inline-block;
   background: red;
-  width: 10px;
-  height: 35px;
+  width: 7px;
+  height: 100%;
   border-radius: 3px;
 }
 
@@ -105,10 +113,15 @@
   padding: 5px;
 }
 
+.checkOutDiv {
+  position: relative;
+}
+
 .checkOutBoxOpen {
+  position: relative;
   display: inline-block;
   align-content: center;
-  width: 120px;
+  width: 55%;
   font-size: 12px;
   border: solid 1px red;
   border-radius: 3px;
@@ -116,14 +129,18 @@
 }
 
 .checkOutBoxClosed {
+  position: relative;
   display: inline-block;
   align-content: center;
-  width: 120px;
+  width: 100%;
   font-size: 12px;
   border: solid 1px gray;
   border-radius: 3px;
   padding: 5px;
-  /* margin-top: 50px; */
+}
+
+.checkIcons {
+  margin-left: 5px;
 }
 
 .sitePrice {
@@ -157,8 +174,8 @@
 }
 
 .viewingHotel {
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   color: red;
 }
 
@@ -171,10 +188,22 @@
 .plusMinusButtons {
   background: white;
   color: green;
+  height: 15px;
 }
 
 .modalButtons {
-  display: inline-block;
-  justify-content: center;
-  justify-items: center;
+  display: flex wrap;
+  /* justify-content: space-between;
+  justify-items: space-between;
+  align-items: space-between;
+  align-content: space-between; */
+}
+
+.guestNumbers {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  background: white;
+  border: solid 1px gray;
+  width: 100px;
 }

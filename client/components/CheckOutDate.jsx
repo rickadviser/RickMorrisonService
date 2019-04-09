@@ -4,7 +4,7 @@ import moment from 'moment';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
-import {checkInOut, checkIn, checkInBoxOpen, checkInBoxClosed, checkOut, checkOutBoxOpen, checkOutBoxClosed, checkOutColorBox } from '../../public/css.css';
+import { checkIcons, checkOutDiv, checkOutColorBox, checkOutBoxOpen, checkOutBoxClosed } from '../../public/css.css';
 
 library.add(faCalendarDay);
 
@@ -41,11 +41,10 @@ class CheckOutDate extends Component {
       if (this.state.checkOutDate !== '__/__/__') {
         return (
           <div>
-            <div onClick={this.handleClick}>
-            <div className={checkOutColorBox}>
-          </div>  
+            <div className={checkOutDiv} onClick={this.handleClick}>
+              <div className={checkOutColorBox}></div>
               <span className={checkOutBoxOpen}>
-              <FontAwesomeIcon icon="calendar-day" size="sm" color="red" />
+              <FontAwesomeIcon icon="calendar-day" size="sm" color="red" className={checkIcons} />
                 <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
               </span>
             </div>
@@ -58,11 +57,10 @@ class CheckOutDate extends Component {
       }
       return (
         <div>
-          <div onClick={this.handleClick}>
-          <div className={checkOutColorBox}>
-          </div>
+          <div className={checkOutDiv} onClick={this.handleClick}>
+            <div className={checkOutColorBox}></div>
             <span className={checkOutBoxOpen}>
-            <FontAwesomeIcon icon="calendar-day" size="sm" color="red" />
+            <FontAwesomeIcon icon="calendar-day" size="sm" color="red" className={checkIcons} />
               <span> Check Out {this.state.checkOutDate}</span>
             </span>
           </div>
@@ -76,28 +74,26 @@ class CheckOutDate extends Component {
     if (this.state.checkOutDate !== '__/__/__') {
       return (
         <div>
-        <div onClick={this.handleClick}>
-        <div className={checkOutColorBox}>
+          <div className={checkOutDiv} onClick={this.handleClick}>
+            <div className={checkOutColorBox}></div>
+            <span className={checkOutBoxClosed}>
+              <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
+              <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+            </span>
           </div>
-        <span className={checkOutBoxClosed}>
-        <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
-            <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+        </div>
+      );
+    }
+    return (
+      <div>
+        <div className={checkOutDiv} onClick={this.handleClick}>
+          <div className={checkOutColorBox}></div>
+          <span className={checkOutBoxClosed}>
+            <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
+            <span> Check Out {this.state.checkOutDate}</span>
           </span>
         </div>
       </div>
-    );
-  }
-  return (
-    <div>
-    <div onClick={this.handleClick}>
-    <div className={checkOutColorBox}>
-          </div>
-    <span className={checkOutBoxClosed}>
-    <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" />
-        <span> Check Out {this.state.checkOutDate}</span>
-      </span>
-    </div>
-  </div>
 );
   }
 }

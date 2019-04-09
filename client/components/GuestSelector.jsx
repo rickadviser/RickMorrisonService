@@ -68,15 +68,17 @@ class GuestSelector extends Component {
       <div>
         <div className={guestSelectorBox} onClick={this.handleClick}>
           <FontAwesomeIcon icon="user-friends" size="sm" color="gray" />
-          <span className={guests}>Guests</span>
-          <br />
-          <div className={guestList}>
-            {this.state.rooms}
-            {rooms}
-            {this.state.adults}
-            {adults}
-            {this.state.children}
-            {children}
+          <div>
+            <span className={guests}>Guests</span>
+            <br />
+            <div className={guestList}>
+              {this.state.rooms}
+              {rooms}
+              {this.state.adults}
+              {adults}
+              {this.state.children}
+              {children}
+            </div>
           </div>
         </div>
         <GuestModal

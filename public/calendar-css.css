@@ -32,19 +32,36 @@ body {
   align-items: center;
   height: 30px;
   background: white;
+  display: flex;
+  justify-content: space-between;
 }
 
 .calendar header .monthLabel {
   flex: 1;
   text-transform: capitalize;
 }
-.calendar header .arrow {
+
+.calendar header .arrowLeft {
   text-align: center;
   flex-basis: 15%;
   font-weight: bold;
   cursor: pointer;
   transition: background .2s;
   height: 100%;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar header .arrowRight {
+  text-align: center;
+  flex-basis: 15%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background .2s;
+  height: 100%;
+  width: 15%;
   display: flex;
   justify-content: center;
   align-items: center;

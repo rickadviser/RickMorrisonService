@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { guestNumbers } from '../../public/css.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserFriends, faBed, faChild } from '@fortawesome/free-solid-svg-icons';
@@ -67,25 +68,31 @@ class GuestModal extends Component {
         <div>
           <FontAwesomeIcon icon="bed" color="gray" />
           <span>Rooms</span>
-          <button type="button" className={plusMinusButtons} id="decreaseRooms" onClick={this.decreaseRooms}>-</button>
-          {this.state.rooms}
-          <button type="button" className={plusMinusButtons} id="increaseRooms" onClick={this.increaseRooms}>+</button>
+          <span className={guestNumbers}>
+            <button type="button" className={plusMinusButtons} id="decreaseRooms" onClick={this.decreaseRooms}>-</button>
+            {this.state.rooms}
+            <button type="button" className={plusMinusButtons} id="increaseRooms" onClick={this.increaseRooms}>+</button>
+          </span>
         </div>
         <br/>
         <div>
           <FontAwesomeIcon icon="user-friends" color="gray" />
           <span>Adults</span>
-          <button type="button" className={plusMinusButtons} id="decreaseAdults" onClick={this.decreaseAdults}>-</button>
-          {this.state.adults}
-          <button type="button" className={plusMinusButtons} id="increaseAdults" onClick={this.increaseAdults}>+</button>
+          <span className={guestNumbers}>
+            <button type="button" className={plusMinusButtons} id="decreaseAdults" onClick={this.decreaseAdults}>-</button>
+            {this.state.adults}
+            <button type="button" className={plusMinusButtons} id="increaseAdults" onClick={this.increaseAdults}>+</button>
+          </span>
         </div>
         <br/>
         <div>
           <FontAwesomeIcon icon="child" color="gray" />
           <span>Children</span>
-          <button type="button" className={plusMinusButtons} id="decreaseChildren" onClick={this.decreaseChildren}>-</button>
-          {this.state.children}
-          <button type="button" className={plusMinusButtons} id="increaseChildren" onClick={this.increaseChildren}>+</button>
+          <span className={guestNumbers}>
+            <button type="button" className={plusMinusButtons} id="decreaseChildren" onClick={this.decreaseChildren}>-</button>
+            {this.state.children}
+            <button type="button" className={plusMinusButtons} id="increaseChildren" onClick={this.increaseChildren}>+</button>
+          </span>
         </div>
         <br/>
         <div>

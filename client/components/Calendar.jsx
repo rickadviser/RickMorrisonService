@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { calendar, header, monthDisplay, monthLabel, arrow } from '../../public/calendar-css.css';
+import { calendar, header, monthDisplay, monthLabel, arrowLeft, arrowRight } from '../../public/calendar-css.css';
 import DayNames from './DayNames';
 import Week from './Week';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+library.add(faAngleLeft);
+library.add(faAngleRight);
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -78,9 +83,9 @@ class Calendar extends React.Component {
         <div>Select a date to continue</div>
         <header className={header}>
           <div className={monthDisplay}>
-            {/* <i className={`${arrow} fa fa-angle-left`} onClick={this.previous}/> */}
+            <FontAwesomeIcon icon="angle-left" size="sm" className={arrowLeft} onClick={this.previous} />
             {this.renderMonthLabel()}
-            {/* <i className={`${arrow} fa fa-angle-right`} onClick={this.next}/> */}
+            <FontAwesomeIcon icon="angle-right" size="sm" className={arrowRight} onClick={this.next} />
           </div>
           <DayNames />
         </header>
