@@ -45,7 +45,7 @@ class CheckOutDate extends Component {
               <div className={checkOutColorBox}></div>
               <span className={checkOutBoxOpen}>
               <FontAwesomeIcon icon="calendar-day" size="sm" color="red" className={checkIcons} />
-                <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+                <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
               </span>
             </div>
             <Calendar
@@ -78,7 +78,7 @@ class CheckOutDate extends Component {
             <div className={checkOutColorBox}></div>
             <span className={checkOutBoxClosed}>
               <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-              <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+              <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
             </span>
           </div>
         </div>

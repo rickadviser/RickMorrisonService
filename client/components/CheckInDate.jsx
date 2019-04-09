@@ -48,7 +48,7 @@ class CheckInDate extends Component {
               </div>              
               <span className={checkInBoxOpen}>
                 <FontAwesomeIcon icon="calendar-day" size="sm" color="green" className={checkIcons} />
-                <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+                <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
               </span>
             </div>
             <Calendar
@@ -82,7 +82,7 @@ class CheckInDate extends Component {
           </div>
             <span className={checkInBoxClosed}>
               <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-              <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YY").toString().substring(0, 15)}</span>
+              <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
             </span>
           </div>
         </div>

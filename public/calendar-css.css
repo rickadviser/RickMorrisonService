@@ -96,7 +96,7 @@ body {
 .calendar .days {
   flex: 1;
   height: 25px;
-  border-left: solid 1px #CCCCCC;
+  border-right: solid 1px #CCCCCC;
   cursor: pointer;
   transition: all .2s;
 }
@@ -110,16 +110,19 @@ body {
 }
 
 .calendar .days.today {
-  background: #EFEFEF;
+  background: white;
+  color: rgb(113, 177, 129);
+  border: none !important;
+  border-right: solid 1px #CCCCCC !important;
 }
 
 .calendar .days.differentMonth {
   color: #C0C0C0
 }
 
-.calendar .days.selected {
+.selection {
   background: white;
-  border: 1px solid rgb(113, 177, 129);
+  border: 1px solid rgb(113, 177, 129) !important;
   color: black;
 }
   
@@ -132,36 +135,6 @@ body {
     box-shadow: 0 0 15px 0 #C0C0C0;
     font-size: 1.2rem;
     text-align: center;
-  
-    /* .days {
-        flex: 1;
-        height: 35px;
-        border-left: solid 1px #CCCCCC;
-        cursor: pointer;
-        transition: all .2s;
-
-        &:hover {
-            background: rgb(113, 177, 129);
-        }
-
-        &:first-child {
-            border-left:none;
-        }
-
-        &.today {
-            background: #EFEFEF;
-        }
-
-        &.different-month {
-            color: #C0C0C0;
-        }
-
-        &.selected {
-            background: white;
-            border: 1px solid rgb(113, 177, 129);
-            color: black;
-        }
-    } */
 }
 
 

@@ -3,7 +3,7 @@ import { guestNumbers } from '../../public/css.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserFriends, faBed, faChild } from '@fortawesome/free-solid-svg-icons';
-import { updateButton, modalButtons, plusMinusButtons } from '../../public/css.css';
+import { updateButton, modalButtons, plusMinusButtons, guestModal } from '../../public/css.css';
 library.add(faUserFriends);
 library.add(faBed);
 library.add(faChild);
@@ -64,7 +64,7 @@ class GuestModal extends Component {
 
   render() {
     return (
-      <div className={modalButtons}>
+      <div className={`${modalButtons} ${guestModal}`}>
         <div>
           <FontAwesomeIcon icon="bed" color="gray" />
           <span>Rooms</span>
