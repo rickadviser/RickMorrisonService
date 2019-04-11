@@ -174,9 +174,9 @@
 }
 
 .viewingHotel {
-  /* display: flex; */
-  /* justify-content: center; */
   color: red;
+  padding-left: 25px;
+  padding-bottom: 25px;
 }
 
 .updateButton {

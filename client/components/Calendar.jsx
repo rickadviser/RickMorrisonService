@@ -37,7 +37,7 @@ class Calendar extends React.Component {
   select(day) {
     this.setState({
       selected: day.date,
-      month: day.date.clone(),
+      month: day.date.clone().subtract(1, 'month'),
     });
     this.props.onChange(day.date);
   }
