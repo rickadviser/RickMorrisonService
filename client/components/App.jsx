@@ -43,22 +43,22 @@ class App extends Component {
   }
 
   getLowestPrices() {
-    fetch(`http://localhost:8080/prices/${this.state.checkInDate}`)
+    fetch(`http://localhost:3001/prices/${this.state.checkInDate}`)
       .then(res => res.json())
       .then((data) => {
-            const tupleArray = Object.entries(data.result[0]);
-            const sortedArray = tupleArray.sort((a, b) => {
-              return a[1] > b[1] ? 1 : -1;
-            });
-            this.setState({
-              lowest: sortedArray[1],
-              secondLowest: sortedArray[2],
-              thirdLowest: sortedArray[3],
-              fourthLowest: sortedArray[4],
-              fifthLowest: sortedArray[5],
-              sixthLowest: sortedArray[6],
-            });
-        });        
+        const tupleArray = Object.entries(data.result[0]);
+        const sortedArray = tupleArray.sort((a, b) => {
+          return a[1] > b[1] ? 1 : -1;
+        });
+        this.setState({
+          lowest: sortedArray[1],
+          secondLowest: sortedArray[2],
+          thirdLowest: sortedArray[3],
+          fourthLowest: sortedArray[4],
+          fifthLowest: sortedArray[5],
+          sixthLowest: sortedArray[6],
+        });
+      });
   }
 
   updatePrices({ lowest, secondLowest, thirdLowest }) {
@@ -111,6 +111,7 @@ class App extends Component {
               adults={this.state.adults}
               children={this.state.children}
               updatePrices={this.updatePrices}
+              getLowestPrices={this.getLowestPrices}
               data-test="guestSelector"
             />
           </div>

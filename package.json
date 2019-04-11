@@ -7,10 +7,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "webpack --mode development --host 0.0.0.0 --watch",
-    "all": "concurrently \"npm run seed\" \"npm run server\"",
+    "webpack": "webpack --mode development --host 0.0.0.0 --watch",
+    "start": "concurrently \"npm run seed\" \"npm run server\"",
     "server": "nodemon server/index.js",
-    "seed": "mysql -u < schema.sql",
+    "seed": "mysql -u root < schema.sql",
     "test": "jest --detectOpenHandles",
     "test:coverage": "jest --coverage"
   },
@@ -21,6 +21,7 @@
     "adapter": "0.0.1",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",
