@@ -1,10 +1,10 @@
-.wrapper {
-  display: flex wrap;
-  justify-content: space-around;
-  justify-items: space-around;
+/* .wrapper {
+  display: flex;
+  text-align: center;
   border: solid 1px #CCCCCC;
-  width: 400px;
-}
+  width: 320px;
+  padding: 5px;
+} */
 
 
 .viewDeals {
@@ -44,6 +44,7 @@
 
 .siteBoxes {
   display: flex wrap;
+  justify-items: center;
   justify-content: space-between;
   align-content: space-between;
   height: 175px;
@@ -51,16 +52,25 @@
 
 .checkInOut {
   display: flex;
-  align-content: center;
-  align-items: center;
+  justify-content: space-between;
+  width: 300px;
 }
 
 .checkIn {
+  display: flex;
+  justify-content: flex-start;
   padding: 5px;
 }
 
+.checkInDiv {
+  position: relative;
+}
+
 .checkInBoxOpen {
-  width: 500px;
+  position: relative;
+  display: inline-block;
+  align-content: center;
+  width: 90%;
   font-size: 12px;
   border: solid 1px rgb(113, 177, 129);
   border-radius: 3px;
@@ -68,32 +78,69 @@
 }
 
 .checkInBoxClosed {
-  width: 500px;
+  position: relative;
+  display: inline-block;
+  align-content: center;
+  width: 90%;
   font-size: 12px;
   border: solid 1px gray;
   border-radius: 3px;
   padding: 5px;
+  /* margin-bottom: 50px; */
+}
+
+.checkInColorBox {
+  position: absolute;
+  display: inline-block;
+  background: green;
+  width: 7px;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.checkOutColorBox {
+  position: absolute;
+  display: inline-block;
+  background: red;
+  width: 7px;
+  height: 100%;
+  border-radius: 3px;
 }
 
 .checkOut {
+  display: flex;
+  justify-content: flex-start;
   padding: 5px;
 }
 
+.checkOutDiv {
+  position: relative;
+}
+
 .checkOutBoxOpen {
-  width: 500px;
+  position: relative;
+  display: inline-block;
+  align-content: center;
+  width: 90%;
   font-size: 12px;
-  border: solid 1px orange;
+  border: solid 1px red;
   border-radius: 3px;
   padding: 5px;
 }
 
 .checkOutBoxClosed {
-  width: 500px;
-  height: 50px;
+  position: relative;
+  display: inline-block;
+  align-content: center;
+  width: 90%;
   font-size: 12px;
   border: solid 1px gray;
   border-radius: 3px;
   padding: 5px;
+}
+
+.checkIcons {
+  margin-left: 5px;
 }
 
 .sitePrice {
@@ -107,6 +154,8 @@
 }
 
 .guestSelectorBox {
+  display: flex;
+  justify-content: flex-start;
   border: solid .5px gray;
   border-radius: 3px;
   width: 300px;
@@ -114,9 +163,101 @@
 
 .guests {
   font-size: 10px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .guestList {
+  display: flex;
   font-size: 12px;
   font-weight: bold;
+}
+
+.viewingHotel {
+  /* display: flex; */
+  /* justify-content: center; */
+  color: red;
+}
+
+.updateButton {
+  background: rgb(0, 128, 85);
+  color: white;
+  width: 200px;
+  margin-left: 10px;
+  border-radius: 3px;
+  border: solid rgb(0, 128, 85) 1px;
+}
+
+.plusMinusButtons {
+  background: white;
+  color: green;
+  height: 20px;
+}
+
+.modalButtons {
+  display: flex wrap;
+  /* justify-content: space-between;
+  justify-items: space-between;
+  align-items: space-between;
+  align-content: space-between; */
+}
+
+.guestNumbers {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border: solid 1px gray;
+  width: 100px;
+}
+
+.roomsLine {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.roomsColumnTwo {
+  text-align: right;
+  padding-right: 5px;
+  padding-right: 5px;
+}
+.adultsLine {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.adultsColumnTwo {
+  text-align: right;
+  padding-right: 5px;
+}
+.childrenLine {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.childrenColumnTwo {
+  text-align: right;
+  padding-right: 5px;
+}
+
+.guestModal {
+  position: fixed;
+  display: block; 
+  width: 220px; 
+  height: 25%;
+  top: 50px; 
+  left: 320px;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0,0,0,0.0);  */
+  background-color: white;
+  z-index: 2; 
+  cursor: pointer;
+  border: solid 1px gray
 }
