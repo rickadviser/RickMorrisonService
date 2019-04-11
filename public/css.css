@@ -6,6 +6,12 @@
   padding: 5px;
 } */
 
+.viewingHotel {
+  display: block;
+  color: red;
+  padding-left: 25px;
+  padding-bottom: 20px;
+}
 
 .viewDeals {
   display: flex;
@@ -151,6 +157,17 @@
   display: flex;
   color: blue;
   font-size: 10px;
+  width: 320px;
+}
+
+.otherPrices .otherPricesColumnOne {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.otherPrices .otherPricesColumnTwo {
+  text-align: right;
+  padding-left: 75px;
 }
 
 .guestSelectorBox {
@@ -173,11 +190,6 @@
   font-weight: bold;
 }
 
-.viewingHotel {
-  color: red;
-  padding-left: 25px;
-  padding-bottom: 25px;
-}
 
 .updateButton {
   background: rgb(0, 128, 85);

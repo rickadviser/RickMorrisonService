@@ -34,7 +34,7 @@ body {
   border: solid 1px #CCCCCC;
   margin: 10px auto;
   box-shadow: 0 0 15px 0 #C0C0C0;
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
   text-align: center;
 }
 
@@ -96,21 +96,6 @@ body {
   /* border-top: solid 1px #CCCCCC */
 }
 
-.calendar .dayNames {
-  display: flex;
-  /* width: 100%; */
-  color: black;
-  cursor: default;
-  font-size: 0.5rem !important;
-}
-
-.calendar .dayNames .day {
-  cursor: default;
-}
-
-.calendar .dayNames .day:hover {
-  background: inherit;
-}
 
 .calendar .days {
   flex: 1;
@@ -135,8 +120,26 @@ body {
 
 .calendar .days.differentMonth {
   background: white;
+  color: gray;
 }
 
+.calendar .dayNames {
+  display: flex;
+  /* width: 100%; */
+  color: black;
+  cursor: default;
+  font-size: 0.6rem !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.calendar .dayNames .day {
+  cursor: default;
+}
+
+.calendar .dayNames .day:hover {
+  background: inherit;
+}
 .selection {
   background: white;
   border: 1px solid rgb(113, 177, 129) !important;
@@ -144,8 +147,17 @@ body {
   font-weight: bold;
 }
 
-
-.selectDate {
+.selectDateOne {
   border-bottom: 0.5px solid gray;
+  text-align: right;
+  z-index: 6;
+  background: white;
+  padding-right: 3px;
+}
+
+.selectDateTwo {
+  border-bottom: 0.5px solid gray;
+  text-align: left;
+  padding-left: 3px;
 }
 

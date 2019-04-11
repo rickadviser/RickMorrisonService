@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { calendar, calendars, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDate } from '../../public/calendar-css.css';
+import { calendar, calendars, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDateOne, selectDateTwo } from '../../public/calendar-css.css';
 import DayNames from './DayNames';
 import Week from './Week';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -23,17 +23,17 @@ class Calendar extends React.Component {
   previous() {
     const { month } = this.state;
     this.setState({
-      month: month.subtract(1, 'month'),
+      month: month.subtract(2, 'month'),
     });
   }
 
   next() {
     const { month } = this.state;
     this.setState({
-      month: month.add(1,'month'),
+      month: month,
     });
   }
-  
+
   select(day) {
     this.setState({
       selected: day.date,
@@ -54,10 +54,10 @@ class Calendar extends React.Component {
     while (!done) {
       weeks.push(
         <Week
-          key={date} 
-          date={date.clone()} 
-          month={month} 
-          select={(day)=>this.select(day)} 
+          key={date}
+          date={date.clone()}
+          month={month}
+          select={(day)=>this.select(day)}
           selected={selected}
         />
       );
@@ -88,7 +88,7 @@ class Calendar extends React.Component {
     return (
       <div className={calendars}>
         <section className={calendar}>
-          <div className={selectDate}>Select a date</div>
+          <div className={selectDateOne}>Select a date </div>
           <header className={header}>
             <div className={monthDisplay}>
               <FontAwesomeIcon icon="angle-left" size="sm" className={arrowLeft} onClick={this.previous} />
@@ -100,7 +100,7 @@ class Calendar extends React.Component {
           {this.renderWeeks()}
         </section>
         <section className={calendar}>
-          <div className={selectDate}> to continue</div>
+          <div className={selectDateTwo}> to continue</div>
           <header className={header}>
             <div className={monthDisplay}>
               {/* <FontAwesomeIcon icon="angle-left" size="sm" className={arrowLeft} onClick={this.previous} /> */}
