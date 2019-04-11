@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { calendar, header, monthDisplay, monthLabel, arrowLeft, arrowRight } from '../../public/calendar-css.css';
+import { calendar, calendars, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDate } from '../../public/calendar-css.css';
 import DayNames from './DayNames';
 import Week from './Week';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -74,23 +74,44 @@ class Calendar extends React.Component {
   renderMonthLabel() {
     const { month } = this.state;
 
-    return <span className={monthLabel}>{month.format("MMMM YYYY")}</span>;
+    return <span className={monthLabel}>{month.format('MMMM YYYY')}</span>;
+  }
+
+  renderNextMonthLabel() {
+    const { month } = this.state;
+    const nextMonth = month.add(1, 'month');
+
+    return <span className={monthLabel}>{nextMonth.format('MMMM YYYY')}</span> 
   }
 
   render() {
     return (
-      <section className={calendar}>
-        <div>Select a date to continue</div>
-        <header className={header}>
-          <div className={monthDisplay}>
-            <FontAwesomeIcon icon="angle-left" size="sm" className={arrowLeft} onClick={this.previous} />
-            {this.renderMonthLabel()}
-            <FontAwesomeIcon icon="angle-right" size="sm" className={arrowRight} onClick={this.next} />
-          </div>
-          <DayNames />
-        </header>
-        {this.renderWeeks()}
-      </section>
+      <div className={calendars}>
+        <section className={calendar}>
+          <div className={selectDate}>Select a date</div>
+          <header className={header}>
+            <div className={monthDisplay}>
+              <FontAwesomeIcon icon="angle-left" size="sm" className={arrowLeft} onClick={this.previous} />
+              {this.renderMonthLabel()}
+              {/* <FontAwesomeIcon icon="angle-right" size="sm" className={arrowRight} onClick={this.next} /> */}
+            </div>
+            <DayNames />
+          </header>
+          {this.renderWeeks()}
+        </section>
+        <section className={calendar}>
+          <div className={selectDate}> to continue</div>
+          <header className={header}>
+            <div className={monthDisplay}>
+              {/* <FontAwesomeIcon icon="angle-left" size="sm" className={arrowLeft} onClick={this.previous} /> */}
+              {this.renderNextMonthLabel()}
+              <FontAwesomeIcon icon="angle-right" size="sm" className={arrowRight} onClick={this.next} />
+            </div>
+            <DayNames />
+          </header>
+          {this.renderWeeks()}
+        </section>
+      </div>
     );
   }
 }

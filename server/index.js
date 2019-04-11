@@ -7,10 +7,10 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 
 const app = express();
-const PORT = 8080;
+const PORT = 2000;
 
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: '172.17.0.3',
   user: 'root',
   password: '',
   database: 'pricing',

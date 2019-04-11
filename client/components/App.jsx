@@ -86,23 +86,23 @@ class App extends Component {
     return (
       <div className={wrapper}>
         <span className={viewingHotel}>
-        <FontAwesomeIcon icon="user-friends" />
-        12 people are viewing this hotel</span>
+          <FontAwesomeIcon icon="user-friends" />
+          12 people are viewing this hotel</span>
         <span>
           <div className={checkInOut}>
-              <CheckInDate
-                updatePrices={this.updatePrices}
-                getLowestPrices={this.getLowestPrices}
-                checkInDate={this.state.checkInDate}
-                updateCheckin={this.updateCheckin}
-                data-test="checkInDate"
-              />
-              <CheckOutDate
-                checkOutDate={this.state.checkOutDate}
-                updateCheckout={this.updateCheckout}
-                updatePrices={this.updatePrices}
-                data-test="checkOutDate"
-              />
+            <CheckInDate
+              updatePrices={this.updatePrices}
+              getLowestPrices={this.getLowestPrices}
+              checkInDate={this.state.checkInDate}
+              updateCheckin={this.updateCheckin}
+              data-test="checkInDate"
+            />
+            <CheckOutDate
+              checkOutDate={this.state.checkOutDate}
+              updateCheckout={this.updateCheckout}
+              updatePrices={this.updatePrices}
+              data-test="checkOutDate"
+            />
           </div>
           <br/>
           <div className={guestSelectorBox}>

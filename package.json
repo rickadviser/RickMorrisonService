@@ -7,9 +7,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "webpack --mode development --watch",
+    "start": "webpack --mode development --host 0.0.0.0 --watch",
+    "all": "concurrently \"npm run seed\" \"npm run server\"",
     "server": "nodemon server/index.js",
-    "seed": "node schema.sql",
+    "seed": "mysql -u < schema.sql",
     "test": "jest --detectOpenHandles",
     "test:coverage": "jest --coverage"
   },
@@ -19,6 +20,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "adapter": "0.0.1",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",

@@ -17,6 +17,7 @@ class GuestSelector extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleGlobalClick = this.handleGlobalClick.bind(this);
   }
 
   handleClick() {
@@ -29,6 +30,19 @@ class GuestSelector extends Component {
   handleUpdate(state) {
     this.props.updatePrices(state);
     this.setState(state);
+  }
+
+  handleGlobalClick(event) {
+    console.log(event.target.closest(`.${guestSelectorBox}`));
+    if (!event.target.closest(`.${guestSelectorBox}`)) {
+      this.setState({
+        modalOpen: false,
+      });
+    } else {
+      this.setState({
+        modalOpen: true,
+      });
+    }
   }
 
 
@@ -49,7 +63,7 @@ class GuestSelector extends Component {
 
     if (this.state.modalOpen === false) {
       return (
-        <div className={guestSelectorBox} onClick={this.handleClick}>
+        <div id="guestSelectorBox" className={guestSelectorBox} onClick={this.handleClick}>
           <FontAwesomeIcon icon="user-friends" size="sm" color="gray" />
           <span className={guests}>Guests</span>
           <br />
@@ -66,7 +80,7 @@ class GuestSelector extends Component {
     }
     return (
       <div>
-        <div className={guestSelectorBox} onClick={this.handleClick}>
+        <div id="guestSelectorBox" className={guestSelectorBox} onClick={this.handleClick}>
           <FontAwesomeIcon icon="user-friends" size="sm" color="gray" />
           <div>
             <span className={guests}>Guests</span>
@@ -86,6 +100,7 @@ class GuestSelector extends Component {
           adults={this.state.adults}
           children={this.state.children}
           handleUpdate={this.handleUpdate}
+          handleGlobalClick={this.handleGlobalClick}
         />
       </div>
     );

@@ -18,10 +18,26 @@ body {
     width: 100%;
 }
 
+.calendars {
+  display: flex;
+}
+
+
+.calendar {
+  display: block;
+  background:white;
+  width: 250px;
+  border: solid 1px #CCCCCC;
+  margin: 10px auto;
+  box-shadow: 0 0 15px 0 #C0C0C0;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
 .calendar header {
   color: black;
   cursor: default;
-  font-size:1.2rem;
+  font-size:0.9rem;
   display: block;
   /* font-weight: bold; */
   text-transform: uppercase;
@@ -73,16 +89,15 @@ body {
 
 
 .calendar .week {
-  border-top: solid 1px #CCCCCC
+  /* border-top: solid 1px #CCCCCC */
 }
 
 .calendar .dayNames {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   color: black;
-  /* font-weight: bold; */
   cursor: default;
-  font-size: 0.9rem;
+  font-size: 0.5rem !important;
 }
 
 .calendar .dayNames .day {
@@ -96,9 +111,9 @@ body {
 .calendar .days {
   flex: 1;
   height: 25px;
-  border-right: solid 1px #CCCCCC;
   cursor: pointer;
   transition: all .2s;
+  font-size: 0.8rem;
 }
 
 .calendar .days:hover {
@@ -112,30 +127,22 @@ body {
 .calendar .days.today {
   background: white;
   color: rgb(113, 177, 129);
-  border: none !important;
-  border-right: solid 1px #CCCCCC !important;
 }
 
 .calendar .days.differentMonth {
-  color: #C0C0C0
+  background: white;
+  color: dodgerblue
 }
 
 .selection {
   background: white;
   border: 1px solid rgb(113, 177, 129) !important;
   color: black;
-}
-  
-.calendar {
-    display: block;
-    background:white;
-    width: 300px;
-    border: solid 1px #CCCCCC;
-    margin: 10px auto;
-    box-shadow: 0 0 15px 0 #C0C0C0;
-    font-size: 1.2rem;
-    text-align: center;
+  font-weight: bold;
 }
 
 
+.selectDate {
+  border-bottom: 0.5px solid gray;
+}
 
