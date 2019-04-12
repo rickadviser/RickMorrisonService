@@ -6,6 +6,12 @@
   padding: 5px;
 } */
 
+.viewingHotel {
+  display: block;
+  color: red;
+  padding-left: 25px;
+  padding-bottom: 20px;
+}
 
 .viewDeals {
   display: flex;
@@ -51,7 +57,7 @@
 }
 
 .checkInOut {
-  display: flex;
+  display: block;
   justify-content: space-between;
   width: 300px;
 }
@@ -151,6 +157,17 @@
   display: flex;
   color: blue;
   font-size: 10px;
+  width: 320px;
+}
+
+.otherPrices .otherPricesColumnOne {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.otherPrices .otherPricesColumnTwo {
+  text-align: right;
+  padding-left: 75px;
 }
 
 .guestSelectorBox {
@@ -173,11 +190,6 @@
   font-weight: bold;
 }
 
-.viewingHotel {
-  /* display: flex; */
-  /* justify-content: center; */
-  color: red;
-}
 
 .updateButton {
   background: rgb(0, 128, 85);
@@ -255,7 +267,6 @@
   left: 320px;
   right: 0;
   bottom: 0;
-  /* background-color: rgba(0,0,0,0.0);  */
   background-color: white;
   z-index: 2; 
   cursor: pointer;

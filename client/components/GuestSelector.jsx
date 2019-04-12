@@ -29,6 +29,7 @@ class GuestSelector extends Component {
 
   handleUpdate(state) {
     this.props.updatePrices(state);
+    this.props.getLowestPrices();
     this.setState(state);
   }
 

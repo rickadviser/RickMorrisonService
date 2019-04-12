@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Calendar from './Calendar';
+import CheckOutCalendar from './CheckOutCalendar';
 import moment from 'moment';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,6 +25,7 @@ class CheckOutDate extends Component {
     const formattedDate = moment(stringDate).format('M-D-YYYY');
     this.setState({
       checkOutDate: formattedDate,
+      modalOpen: false,
     });
     this.props.updateCheckout(formattedDate);
   }
@@ -48,7 +49,7 @@ class CheckOutDate extends Component {
                 <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
               </span>
             </div>
-            <Calendar
+            <CheckOutCalendar
               // onChange={() => this.props.updatePrices(this.state)}
               onChange={date => this.handleChange(date)}
             />
@@ -64,7 +65,7 @@ class CheckOutDate extends Component {
               <span> Check Out {this.state.checkOutDate}</span>
             </span>
           </div>
-          <Calendar
+          <CheckOutCalendar
             // onChange={() => this.props.updatePrices(this.state)}
             onChange={date => this.handleChange(date)}
           />

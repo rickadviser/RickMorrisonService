@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { calendar, calendars, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDateOne, selectDateTwo } from '../../public/check-in-calendar-css.css';
+import { calendar, checkOutCalendar, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDateOne, selectDateTwo } from '../../public/check-in-calendar-css.css';
 import DayNames from './DayNames';
 import Week from './Week';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -9,16 +9,17 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 library.add(faAngleLeft);
 library.add(faAngleRight);
 
-class Calendar extends React.Component {
+class CheckOutCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      month: moment(),
-      selected: moment().startOf('day'),
+      month: moment().subtract(26, 'month'),
+      selected: this.props.checkInDate,
     };
     this.previous = this.previous.bind(this);
     this.next = this.next.bind(this);
   }
+
 
   previous() {
     const { month } = this.state;
@@ -87,7 +88,7 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <div className={calendars}>
+      <div className={checkOutCalendar}>
         <section className={calendar}>
           <div className={selectDateOne}>Select a date </div>
           <header className={header}>
@@ -117,4 +118,4 @@ class Calendar extends React.Component {
   }
 }
 
-export default Calendar;
+export default CheckOutCalendar;

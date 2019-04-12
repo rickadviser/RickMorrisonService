@@ -6,11 +6,13 @@ const bodyParser = require('body-parser');
 
 const mysql = require('mysql');
 
+const cors = require('cors');
+
 const app = express();
-const PORT = 2000;
+const PORT = 3001;
 
 const connection = mysql.createConnection({
-  host: '172.17.0.3',
+  host: 'localhost',
   user: 'root',
   password: '',
   database: 'pricing',
@@ -24,6 +26,7 @@ connection.connect((err) => {
   console.log(`connected as id ${connection.threadId}`);
 });
 
+app.use(cors());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 

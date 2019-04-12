@@ -17,4 +17,4 @@ RUN yarn install
 EXPOSE 3000
 
 # How do you start your app?
-CMD [ "npm", "run all" ]
+CMD [ "npm", "start" ]

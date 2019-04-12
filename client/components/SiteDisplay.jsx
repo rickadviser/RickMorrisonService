@@ -1,12 +1,12 @@
 import React from 'react';
 import { Component } from 'react';
-import Expedia from '../assets/Expedia.png';
-import Booking from '../assets/booking logo.png';
-import CheapTickets from '../assets/CheapTickets.png';
-import HotelsCom from '../assets/HotelsCom.png';
-import OfficialHotelSite from '../assets/OfficialHotelSite.gif';
-import TripAdvisor from '../assets/TripAdvisor.png';
-import Priceline from '../assets/Priceline.png';
+// import Expedia from '../assets/Expedia.png';
+// import Booking from '../assets/booking logo.png';
+// import CheapTickets from '../assets/CheapTickets.png';
+// import HotelsCom from '../assets/HotelsCom.png';
+// import OfficialHotelSite from '../assets/OfficialHotelSite.gif';
+// import TripAdvisor from '../assets/TripAdvisor.png';
+// import Priceline from '../assets/Priceline.png';
 import { viewDeals, viewDealText, siteModule, sitePrice } from '../../public/css.css';
 
 const SiteDisplay = (props) => {
@@ -22,7 +22,7 @@ const SiteDisplay = (props) => {
       return (
         <div className={siteModule} onClick={props.onClick}>
           <span>
-            <img src={OfficialHotelSite} alt="OfficialHotelSite" width="120" height="45" />
+            <img src="https://s3-us-west-1.amazonaws.com/stanleyhotel/rick4.gif" alt="OfficialHotelSite" width="110" height="45" />
           </span>
           <span className={sitePrice}>
             ${props.site[1]}
@@ -35,7 +35,7 @@ const SiteDisplay = (props) => {
       return (
         <div className={siteModule} onClick={props.onClick}>
           <span>
-            <img src={Booking} alt="Booking" height="45" />
+            <img src="https://s3-us-west-1.amazonaws.com/stanleyhotel/rick1.png" alt="Booking" height="45" />
           </span>
           <span className={sitePrice}>
             ${props.site[1]}
@@ -48,7 +48,7 @@ const SiteDisplay = (props) => {
       return (
         <div className={siteModule} onClick={props.onClick}>
           <span>
-            <img src={Expedia} alt="Expedia" height="45" />
+            <img src="https://s3-us-west-1.amazonaws.com/stanleyhotel/rick0.png" alt="Expedia" height="45" />
           </span>
           <span className={sitePrice}>
             ${props.site[1]}
@@ -61,7 +61,7 @@ const SiteDisplay = (props) => {
       return (
         <div className={siteModule} onClick={props.onClick}>
           <span>
-            <img src={CheapTickets} alt="CheapTickets" height="45" />
+            <img src="https://s3-us-west-1.amazonaws.com/stanleyhotel/rick6.png" alt="CheapTickets" height="45" />
           </span>
           <span className={sitePrice}>
             ${props.site[1]}
@@ -74,7 +74,7 @@ const SiteDisplay = (props) => {
       return (
         <div className={siteModule} onClick={props.onClick}>
           <span>
-            <img src={HotelsCom} alt="HotelsCom" height="45" />
+            <img src="https://s3-us-west-1.amazonaws.com/stanleyhotel/rick5.png" alt="HotelsCom" height="45" />
           </span>
           <span className={sitePrice}>
             ${props.site[1]}
@@ -87,7 +87,7 @@ const SiteDisplay = (props) => {
       return (
         <div className={siteModule} onClick={props.onClick}>
           <span>
-            <img src={TripAdvisor} alt="TripAdvisor" height="20" />
+            <img src="https://s3-us-west-1.amazonaws.com/stanleyhotel/rick2.png" alt="TripAdvisor" height="20" />
           </span>
           <span className={sitePrice}>
             ${props.site[1]}
@@ -100,7 +100,7 @@ const SiteDisplay = (props) => {
       return (
         <div className={siteModule} onClick={props.onClick}>
           <span>
-            <img src={Priceline} alt="Priceline" height="45" />
+            <img src="https://s3-us-west-1.amazonaws.com/stanleyhotel/rick3.png" alt="Priceline" height="45" />
           </span>
           <span className={sitePrice}>
             ${props.site[1]}
