@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { calendar, checkOutCalendar, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDateOne, selectDateTwo } from '../../public/calendar-css.css';
+import { calendar, checkOutCalendar, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDateOne, selectDateTwo } from '../../public/check-in-calendar-css.css';
 import DayNames from './DayNames';
 import Week from './Week';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -13,12 +13,13 @@ class CheckOutCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      month: moment(),
-      selected: moment().startOf('day'),
+      month: moment().subtract(26, 'month'),
+      selected: this.props.checkInDate,
     };
     this.previous = this.previous.bind(this);
     this.next = this.next.bind(this);
   }
+
 
   previous() {
     const { month } = this.state;

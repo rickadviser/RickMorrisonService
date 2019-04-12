@@ -1,5 +1,5 @@
 import React from 'react';
-import { dayNames, days } from '../../public/calendar-css.css';
+import { dayNames, days } from '../../public/check-in-calendar-css.css';
 
 const DayNames = () => (
   <div className={dayNames}>

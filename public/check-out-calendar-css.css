@@ -122,10 +122,6 @@ body {
 }
 
 .calendar .days:hover {
-  background: rgb(113, 177, 129);
-}
-
-.calendar .outDays:hover{
   background: red;
 }
 
@@ -133,13 +129,9 @@ body {
   border-left:none;
 }
 
-.calendar .outDays:first-child {
-  border-left:none;
-}
-
 .calendar .days.today {
   background: white;
-  color: rgb(113, 177, 129);
+  color: red;
 }
 
 .calendar .days.differentMonth {
@@ -166,7 +158,7 @@ body {
 }
 .selection {
   background: white;
-  border: 1px solid rgb(113, 177, 129) !important;
+  border: 1px solid red !important;
   color: black;
   font-weight: bold;
 }

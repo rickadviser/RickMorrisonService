@@ -110,7 +110,7 @@ class App extends Component {
               checkInDate={this.state.checkInDate}
               checkOutDate={this.state.checkOutDate}
               updateCheckin={this.updateCheckin}
-              updateCheckOut={this.updateCheckOut}
+              updateCheckout={this.updateCheckout}
             />
           </div>
           <br/>

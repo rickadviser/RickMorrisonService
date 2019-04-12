@@ -30,6 +30,7 @@ class CheckInAndOut extends Component {
     this.setState({
       checkInDate: formattedDate,
       inModalOpen: false,
+      outModalOpen: true,
     });
     this.props.updateCheckin(formattedDate);
     this.props.getLowestPrices();
@@ -58,204 +59,264 @@ class CheckInAndOut extends Component {
     })
   }
 
-  render() {
-    if (this.state.inModalOpen === false && this.state.outModalOpen === false) {
-      return (
-        <div>
-          <div className={checkInDiv} onClick={this.handleClickIn}>
-          <div className={checkInColorBox}>
-          </div>
-            <span className={checkInBoxClosed}>
-              <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-              <span> Check In {this.state.checkInDate}</span>
-            </span>
-          </div>
-          <div className={checkOutDiv} onClick={this.handleClickOut}>
-            <div className={checkOutColorBox}></div>
-            <span className={checkOutBoxClosed}>
-              <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-              <span> Check Out {this.state.checkOutDate}</span>
-            </span>
-          </div>
-        </div>
-      )
+  renderClosedBoxes() {
+    let inDateFormat;
+    let outDateFormat;
+    if (this.state.checkInDate === '__/__/__') {
+      inDateFormat = this.state.checkInDate;
+    } else {
+      inDateFormat = moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)
     }
-    if (this.state.inModalOpen === true && this.state.outModalOpen === false) {
-      return (
-        <div>
-          <div>
-          <div className={checkInDiv} onClick={this.handleClickIn}>
-            <div className={checkInColorBox}>
-            </div>              
-            <span className={checkInBoxOpen}>
-              <FontAwesomeIcon icon="calendar-day" size="sm" color="green" className={checkIcons} />
-              <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
-            </span>
-          </div>
-          <CheckInCalendar
-            // onChange={() => this.props.updatePrices(this.state)}
-            onChange={date => this.handleChangeOne(date)}
-          />
-        </div>
-          <div className={checkOutDiv} onClick={this.handleClickOut}>
-          <div className={checkOutColorBox}></div>
-          <span className={checkOutBoxClosed}>
-            <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-            <span> Check Out {this.state.checkOutDate}</span>
-          </span>
-        </div>
-      </div>
-      )
-  }
-  if (this.state.inModalOpen === false && this.state.outModalOpen === true) {
+    if (this.state.checkOutDate === '__/__/__') {
+      outDateFormat = this.state.checkOutDate;
+    } else {
+      outDateFormat = moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)
+    }
     return (
       <div>
         <div className={checkInDiv} onClick={this.handleClickIn}>
-            <div className={checkInColorBox}>
-            </div>
-              <span className={checkInBoxClosed}>
-                <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-                <span> Check In {this.state.checkInDate}</span>
-              </span>
-            </div>
-              <div className={checkOutDiv} onClick={this.handleClickOut}>
-                <div className={checkOutColorBox}></div>
-                <span className={checkOutBoxOpen}>
-                <FontAwesomeIcon icon="calendar-day" size="sm" color="red" className={checkIcons} />
-                  <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
-                </span>
-              </div>
-              <CheckOutCalendar
-                // onChange={() => this.props.updatePrices(this.state)}
-                onChange={date => this.handleChangeTwo(date)}
-              />
+        <div className={checkInColorBox}>
+        </div>
+          <span className={checkInBoxClosed}>
+            <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
+            <span> Check In {inDateFormat}</span>
+          </span>
+        </div>
+        <div className={checkOutDiv} onClick={this.handleClickOut}>
+          <div className={checkOutColorBox}></div>
+          <span className={checkOutBoxClosed}>
+            <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
+            <span> Check Out {outDateFormat}</span>
+          </span>
+        </div>
       </div>
     )
   }
 
-______________________________________________________________
-
-    if (this.state.inModalOpen === true) {
-      if (this.state.checkInDate !== '__/__/__') {
-        return (
-          <div>
-            <div className={checkInDiv} onClick={this.handleClickIn}>
-              <div className={checkInColorBox}>
-              </div>              
-              <span className={checkInBoxOpen}>
-                <FontAwesomeIcon icon="calendar-day" size="sm" color="green" className={checkIcons} />
-                <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
-              </span>
-            </div>
-            <CheckInCalendar
-              // onChange={() => this.props.updatePrices(this.state)}
-              onChange={date => this.handleChangeOne(date)}
-            />
-          </div>
-        );
-      }
-      return (
+  renderOpenCheckIn() {
+    let inDateFormat;
+    let outDateFormat;
+    if (this.state.checkInDate === '__/__/__' || this.state.checkOutDate === '__/__/__') {
+      inDateFormat = this.state.checkInDate;
+      outDateFormat = this.state.checkOutDate;
+    } else {
+      inDateFormat = moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)
+      outDateFormat = moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)
+    }
+    return (
+      <div>
         <div>
-          <div className={checkInDiv} onClick={this.handleClickIn}>
-            <span className={checkInColorBox}></span>
-            <span className={checkInBoxOpen}>
-              <FontAwesomeIcon icon="calendar-day" size="sm" color="green" className={checkIcons} />
-              <span> Check In {this.state.checkInDate}</span>
-            </span>
-          </div>
-          <CheckInCalendar
-            // onChange={() => this.props.updatePrices(this.state)}
-            onChange={date => this.handleChangeOne(date)}
-          />
-        </div>
-      );
-    } else if (this.state.inModalOpen === false) {
-      if (this.state.checkInDate !== '__/__/__') {
-        return (
-          <div>
-          <div className={checkInDiv} onClick={this.handleClickIn}>
+        <div className={checkInDiv} onClick={this.handleClickIn}>
           <div className={checkInColorBox}>
-          </div>
-            <span className={checkInBoxClosed}>
-              <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-              <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
-            </span>
-          </div>
+          </div>              
+          <span className={checkInBoxOpen}>
+            <FontAwesomeIcon icon="calendar-day" size="sm" color="green" className={checkIcons} />
+            <span> Check In {inDateFormat}</span>
+          </span>
         </div>
-      );
+        <CheckInCalendar
+          // onChange={() => this.props.updatePrices(this.state)}
+          onChange={date => this.handleChangeOne(date)}
+        />
+      </div>
+        <div className={checkOutDiv} onClick={this.handleClickOut}>
+          <div className={checkOutColorBox}></div>
+          <span className={checkOutBoxClosed}>
+            <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
+            <span> Check Out {outDateFormat}</span>
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  renderOpenCheckOut() {
+    let inDateFormat;
+    let outDateFormat;
+    if (this.state.checkInDate === '__/__/__') {
+      inDateFormat = this.state.checkInDate;
+    } else {
+      inDateFormat = moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)
+    }
+    if (this.state.checkOutDate === '__/__/__') {
+      outDateFormat = this.state.checkOutDate;
+    } else {
+      outDateFormat = moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)
     }
     return (
       <div>
         <div className={checkInDiv} onClick={this.handleClickIn}>
-          <div className={checkInColorBox}>
-          </div>
+          <div className={checkInColorBox} />
           <span className={checkInBoxClosed}>
             <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-            <span> Check In {this.state.checkInDate}</span>
+            <span> Check In {inDateFormat}</span>
           </span>
-          </div>
-      </div>
-    )}
-if (this.state.outModalOpen === true) {
-      if (this.state.checkOutDate !== '__/__/__') {
-        return (
-          <div>
-            <div className={checkOutDiv} onClick={this.handleClick}>
-              <div className={checkOutColorBox}></div>
-              <span className={checkOutBoxOpen}>
-              <FontAwesomeIcon icon="calendar-day" size="sm" color="red" className={checkIcons} />
-                <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
-              </span>
-            </div>
-            <CheckOutCalendar
-              // onChange={() => this.props.updatePrices(this.state)}
-              onChange={date => this.handleChange(date)}
-            />
-          </div>
-        );
-      }
-      return (
+        </div>
         <div>
-          <div className={checkOutDiv} onClick={this.handleClick}>
-            <div className={checkOutColorBox}></div>
+          <div className={checkOutDiv} onClick={this.handleClickOut}>
+            <div className={checkOutColorBox} />
             <span className={checkOutBoxOpen}>
-            <FontAwesomeIcon icon="calendar-day" size="sm" color="red" className={checkIcons} />
-              <span> Check Out {this.state.checkOutDate}</span>
+              <FontAwesomeIcon icon="calendar-day" size="sm" color="red" className={checkIcons} />
+              <span> Check Out {outDateFormat}</span>
             </span>
           </div>
           <CheckOutCalendar
             // onChange={() => this.props.updatePrices(this.state)}
-            onChange={date => this.handleChange(date)}
+            onChange={date => this.handleChangeTwo(date)}
+            checkInDate={this.props.checkInDate}
           />
         </div>
+      </div>
+    )
+  }
+
+  render() {
+    // both modals closed
+    if (this.state.inModalOpen === false && this.state.outModalOpen === false) {
+      return (
+        <div>
+          {this.renderClosedBoxes()}
+        </div>
       );
-    } else if (this.state.outModalOpen === false) {
-      if (this.state.checkOutDate !== '__/__/__') {
-        return (
-          <div>
-          <div className={checkOutDiv} onClick={this.handleClick}>
-            <div className={checkOutColorBox}></div>
-            <span className={checkOutBoxClosed}>
-              <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-              <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
-            </span>
-          </div>
+    } if (this.state.inModalOpen === true && this.state.outModalOpen === false) {
+      return (
+        <div>
+          {this.renderOpenCheckIn()}
+        </div>
+      );
+    } if (this.state.inModalOpen === false && this.state.outModalOpen === true) {
+      return (
+        <div>
+          {this.renderOpenCheckOut()}
         </div>
       );
     }
-    return (
-      <div>
-        <div className={checkOutDiv} onClick={this.handleClick}>
-          <div className={checkOutColorBox}></div>
-          <span className={checkOutBoxClosed}>
-            <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
-            <span> Check Out {this.state.checkOutDate}</span>
-          </span>
-        </div>
-      </div>
-
-    )}
   }
 }
+
+// ______________________________________________________________
+
+//     if (this.state.inModalOpen === true) {
+//       if (this.state.checkInDate !== '__/__/__') {
+//         return (
+//           <div>
+//             <div className={checkInDiv} onClick={this.handleClickIn}>
+//               <div className={checkInColorBox}>
+//               </div>              
+//               <span className={checkInBoxOpen}>
+//                 <FontAwesomeIcon icon="calendar-day" size="sm" color="green" className={checkIcons} />
+//                 <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
+//               </span>
+//             </div>
+//             <CheckInCalendar
+//               // onChange={() => this.props.updatePrices(this.state)}
+//               onChange={date => this.handleChangeOne(date)}
+//             />
+//           </div>
+//         );
+//       }
+//       return (
+//         <div>
+//           <div className={checkInDiv} onClick={this.handleClickIn}>
+//             <span className={checkInColorBox}></span>
+//             <span className={checkInBoxOpen}>
+//               <FontAwesomeIcon icon="calendar-day" size="sm" color="green" className={checkIcons} />
+//               <span> Check In {this.state.checkInDate}</span>
+//             </span>
+//           </div>
+//           <CheckInCalendar
+//             // onChange={() => this.props.updatePrices(this.state)}
+//             onChange={date => this.handleChangeOne(date)}
+//           />
+//         </div>
+//       );
+//     } else if (this.state.inModalOpen === false) {
+//       if (this.state.checkInDate !== '__/__/__') {
+//         return (
+//           <div>
+//           <div className={checkInDiv} onClick={this.handleClickIn}>
+//           <div className={checkInColorBox}>
+//           </div>
+//             <span className={checkInBoxClosed}>
+//               <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
+//               <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
+//             </span>
+//           </div>
+//         </div>
+//       );
+//     }
+//     return (
+//       <div>
+//         <div className={checkInDiv} onClick={this.handleClickIn}>
+//           <div className={checkInColorBox}>
+//           </div>
+//           <span className={checkInBoxClosed}>
+//             <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
+//             <span> Check In {this.state.checkInDate}</span>
+//           </span>
+//           </div>
+//       </div>
+//     )}
+// if (this.state.outModalOpen === true) {
+//       if (this.state.checkOutDate !== '__/__/__') {
+//         return (
+//           <div>
+//             <div className={checkOutDiv} onClick={this.handleClick}>
+//               <div className={checkOutColorBox}></div>
+//               <span className={checkOutBoxOpen}>
+//               <FontAwesomeIcon icon="calendar-day" size="sm" color="red" className={checkIcons} />
+//                 <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
+//               </span>
+//             </div>
+//             <CheckOutCalendar
+//               // onChange={() => this.props.updatePrices(this.state)}
+//               onChange={date => this.handleChange(date)}
+//             />
+//           </div>
+//         );
+//       }
+//       return (
+//         <div>
+//           <div className={checkOutDiv} onClick={this.handleClick}>
+//             <div className={checkOutColorBox}></div>
+//             <span className={checkOutBoxOpen}>
+//             <FontAwesomeIcon icon="calendar-day" size="sm" color="red" className={checkIcons} />
+//               <span> Check Out {this.state.checkOutDate}</span>
+//             </span>
+//           </div>
+//           <CheckOutCalendar
+//             // onChange={() => this.props.updatePrices(this.state)}
+//             onChange={date => this.handleChange(date)}
+//           />
+//         </div>
+//       );
+//     } else if (this.state.outModalOpen === false) {
+//       if (this.state.checkOutDate !== '__/__/__') {
+//         return (
+//           <div>
+//           <div className={checkOutDiv} onClick={this.handleClick}>
+//             <div className={checkOutColorBox}></div>
+//             <span className={checkOutBoxClosed}>
+//               <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
+//               <span> Check Out {moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
+//             </span>
+//           </div>
+//         </div>
+//       );
+//     }
+//     return (
+//       <div>
+//         <div className={checkOutDiv} onClick={this.handleClick}>
+//           <div className={checkOutColorBox}></div>
+//           <span className={checkOutBoxClosed}>
+//             <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
+//             <span> Check Out {this.state.checkOutDate}</span>
+//           </span>
+//         </div>
+//       </div>
+
+//     )}
+//   }
+// }
 
 export default CheckInAndOut;

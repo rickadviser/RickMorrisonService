@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { calendar, checkInCalendar, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDateOne, selectDateTwo } from '../../public/calendar-css.css';
+import { calendar, checkInCalendar, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDateOne, selectDateTwo } from '../../public/check-in-calendar-css.css';
 import DayNames from './DayNames';
 import Week from './Week';
 import { library } from '@fortawesome/fontawesome-svg-core';

@@ -22,7 +22,7 @@ const SiteDisplay = (props) => {
       return (
         <div className={siteModule} onClick={props.onClick}>
           <span>
-            <img src="https://s3-us-west-1.amazonaws.com/stanleyhotel/rick4.gif" alt="OfficialHotelSite" width="120" height="45" />
+            <img src="https://s3-us-west-1.amazonaws.com/stanleyhotel/rick4.gif" alt="OfficialHotelSite" width="110" height="45" />
           </span>
           <span className={sitePrice}>
             ${props.site[1]}
