@@ -8,10 +8,6 @@
     font-size: 62.5%;
 } */
 
-body {
-    background: white;
-    font-family: Arial, sans-serif;
-}
 
 .row {
     display: flex;
