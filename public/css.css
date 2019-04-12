@@ -57,7 +57,7 @@
 }
 
 .checkInOut {
-  display: block;
+  display: flex;
   justify-content: space-between;
   width: 300px;
 }
@@ -204,6 +204,8 @@
   background: white;
   color: green;
   height: 20px;
+  border: solid 0.1px gray;
+  font-size: 20px;
 }
 
 .modalButtons {

@@ -112,7 +112,7 @@ body {
   height: 25px;
   cursor: pointer;
   transition: all .2s;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .calendar .outDays {
@@ -154,7 +154,7 @@ body {
   /* width: 100%; */
   color: black;
   cursor: default;
-  font-size: 0.6rem !important;
+  font-size: 0.5rem !important;
   padding-top: 5px;
   padding-bottom: 5px;
 }
