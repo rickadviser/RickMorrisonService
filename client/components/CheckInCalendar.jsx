@@ -23,19 +23,18 @@ class CheckInCalendar extends React.Component {
   previous() {
     const { month } = this.state;
     this.setState({
-      month: month.subtract(2, 'month'),
+      month: month.subtract(27, 'month'),
     });
   }
 
   next() {
     const { month } = this.state;
     this.setState({
-      month,
+      month: month.subtract(25, 'month'),
     });
   }
 
   select(day) {
-    console.log("state selected: ", this.state.selected)
     this.setState({
       selected: day.date,
       month: day.date.clone().subtract(26, 'month'),

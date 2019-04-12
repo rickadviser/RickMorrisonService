@@ -36,7 +36,6 @@ class CheckOutCalendar extends React.Component {
   }
 
   select(day) {
-    console.log("state selected: ", this.state.selected)
     this.setState({
       selected: day.date,
       month: day.date.clone().subtract(26, 'month'),

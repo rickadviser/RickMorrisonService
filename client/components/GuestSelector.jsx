@@ -9,71 +9,35 @@ library.add(faUserFriends)
 class GuestSelector extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      rooms: 1,
-      adults: 1,
-      children: 0,
-      modalOpen: false,
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleGlobalClick = this.handleGlobalClick.bind(this);
   }
-
-  handleClick() {
-    // pop up modal box
-    this.setState({
-      modalOpen: !this.state.modalOpen,
-    });
-  }
-
-  handleUpdate(state) {
-    this.props.updatePrices(state);
-    this.props.getLowestPrices();
-    this.setState(state);
-  }
-
-  handleGlobalClick(event) {
-    console.log(event.target.closest(`.${guestSelectorBox}`));
-    if (!event.target.closest(`.${guestSelectorBox}`)) {
-      this.setState({
-        modalOpen: false,
-      });
-    } else {
-      this.setState({
-        modalOpen: true,
-      });
-    }
-  }
-
 
   render() {
     let rooms = ' rooms, ';
     let adults = ' adults, ';
     let children = ' children';
 
-    if (this.state.rooms === 1) {
+    if (this.props.rooms === 1) {
       rooms = ' room, ';
     }
-    if (this.state.adults === 1) {
+    if (this.props.adults === 1) {
       adults = ' adult, ';
     }
-    if (this.state.children === 1) {
+    if (this.props.children === 1) {
       children = ' child';
     }
 
-    if (this.state.modalOpen === false) {
+    if (this.props.guestModalOpen === false) {
       return (
-        <div id="guestSelectorBox" className={guestSelectorBox} onClick={this.handleClick}>
+        <div id="guestSelectorBox" className={guestSelectorBox} onClick={this.props.handleGuestClick}>
           <FontAwesomeIcon icon="user-friends" size="sm" color="gray" />
           <span className={guests}>Guests</span>
           <br />
           <div className={guestList}>
-            {this.state.rooms}
+            {this.props.rooms}
             {rooms}
-            {this.state.adults}
+            {this.props.adults}
             {adults}
-            {this.state.children}
+            {this.props.children}
             {children}
           </div>
         </div>
@@ -81,27 +45,27 @@ class GuestSelector extends Component {
     }
     return (
       <div>
-        <div id="guestSelectorBox" className={guestSelectorBox} onClick={this.handleClick}>
+        <div id="guestSelectorBox" className={guestSelectorBox} onClick={this.props.handleGuestClick}>
           <FontAwesomeIcon icon="user-friends" size="sm" color="gray" />
           <div>
             <span className={guests}>Guests</span>
             <br />
             <div className={guestList}>
-              {this.state.rooms}
+              {this.props.rooms}
               {rooms}
-              {this.state.adults}
+              {this.props.adults}
               {adults}
-              {this.state.children}
+              {this.props.children}
               {children}
             </div>
           </div>
         </div>
         <GuestModal
-          rooms={this.state.rooms}
-          adults={this.state.adults}
-          children={this.state.children}
-          handleUpdate={this.handleUpdate}
-          handleGlobalClick={this.handleGlobalClick}
+          rooms={this.props.rooms}
+          adults={this.props.adults}
+          children={this.props.children}
+          handleUpdate={this.props.handleUpdate}
+          handleGlobalClick={this.props.handleGlobalClick}
         />
       </div>
     );

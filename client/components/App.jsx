@@ -6,7 +6,7 @@ import GuestSelector from './GuestSelector';
 import SiteDisplay from './SiteDisplay';
 import OtherPrices from './OtherPrices';
 import '../assets/FontAwesomeIcons';
-import { wrapper, checkIn, checkInOut, checkOut, guestSelectorBox, siteBoxes, siteDisplay, viewingHotel } from '../../public/css.css';
+import { wrapper, checkIn, checkInOut, checkOut, guestSelectorBox, guests, guestList, siteBoxes, siteDisplay, viewingHotel } from '../../public/css.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserFriends} from '@fortawesome/free-solid-svg-icons';
@@ -23,8 +23,9 @@ class App extends Component {
     this.state = {
       checkInDate: `${new Date().getMonth() + 1}-${new Date().getDate()}-${new Date().getFullYear().toString()}`,
       checkOutDate: '',
-      rooms: 0,
-      adults: 0,
+      guestModalOpen: false,
+      rooms: 1,
+      adults: 1,
       children: 0,
       lowest: '',
       secondLowest: '',
@@ -37,6 +38,8 @@ class App extends Component {
     this.updatePrices = this.updatePrices.bind(this);
     this.updateCheckin = this.updateCheckin.bind(this);
     this.updateCheckout = this.updateCheckout.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleGuestClick = this.handleGuestClick.bind(this);
   }
 
   componentDidMount() {
@@ -78,8 +81,22 @@ class App extends Component {
 
   updateCheckout(date) {
     this.setState({
+      guestModalOpen: !this.state.guestModalOpen,
       checkOutDate: date,
     });
+  }
+
+  handleUpdate(state) {
+    this.updatePrices(state);
+    this.getLowestPrices();
+    this.setState({ ...state, guestModalOpen: false });
+  }
+
+  handleGuestClick() {
+    this.setState({
+      guestModalOpen: !this.state.guestModalOpen,
+    });
+    // this.props.toggleModal(!this.props.modal);
   }
 
   render() {
@@ -90,20 +107,7 @@ class App extends Component {
           <FontAwesomeIcon icon="user-friends" />
           12 people are viewing this hotel</span>
         <span>
-          <div className={checkInOut}>
-            {/* <CheckInDate
-              updatePrices={this.updatePrices}
-              getLowestPrices={this.getLowestPrices}
-              checkInDate={this.state.checkInDate}
-              updateCheckin={this.updateCheckin}
-              data-test="checkInDate"
-            />
-            <CheckOutDate
-              checkOutDate={this.state.checkOutDate}
-              updateCheckout={this.updateCheckout}
-              updatePrices={this.updatePrices}
-              data-test="checkOutDate"
-            /> */}
+          <div>
             <CheckInAndOut
               updatePrices={this.updatePrices}
               getLowestPrices={this.getLowestPrices}
@@ -111,6 +115,7 @@ class App extends Component {
               checkOutDate={this.state.checkOutDate}
               updateCheckin={this.updateCheckin}
               updateCheckout={this.updateCheckout}
+              data-test="checkInAndOut"
             />
           </div>
           <br/>
@@ -121,6 +126,9 @@ class App extends Component {
               children={this.state.children}
               updatePrices={this.updatePrices}
               getLowestPrices={this.getLowestPrices}
+              handleGuestClick={this.handleGuestClick}
+              handleUpdate={this.handleUpdate}
+              guestModalOpen={this.state.guestModalOpen}
               data-test="guestSelector"
             />
           </div>

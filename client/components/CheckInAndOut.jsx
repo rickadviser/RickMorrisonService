@@ -6,7 +6,7 @@ import CheckOutCalendar from './CheckOutCalendar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
-import { checkIcons, checkInDiv, checkInBoxOpen, checkInBoxClosed, checkInColorBox, checkOutDiv, checkOutColorBox, checkOutBoxClosed, checkOutBoxOpen } from '../../public/css.css'
+import { checkInOut, checkIcons, checkInDiv, checkInBoxOpen, checkInBoxClosed, checkInColorBox, checkOutDiv, checkOutColorBox, checkOutBoxClosed, checkOutBoxOpen } from '../../public/css.css'
 library.add(faCalendarDay);
 
 class CheckInAndOut extends Component {
@@ -73,17 +73,16 @@ class CheckInAndOut extends Component {
       outDateFormat = moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)
     }
     return (
-      <div>
+      <div className={checkInOut}>
         <div className={checkInDiv} onClick={this.handleClickIn}>
-        <div className={checkInColorBox}>
-        </div>
+          <div className={checkInColorBox} />
           <span className={checkInBoxClosed}>
             <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
             <span> Check In {inDateFormat}</span>
           </span>
         </div>
         <div className={checkOutDiv} onClick={this.handleClickOut}>
-          <div className={checkOutColorBox}></div>
+          <div className={checkOutColorBox} />
           <span className={checkOutBoxClosed}>
             <FontAwesomeIcon icon="calendar-day" size="sm" color="gray" className={checkIcons} />
             <span> Check Out {outDateFormat}</span>
@@ -104,7 +103,7 @@ class CheckInAndOut extends Component {
       outDateFormat = moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)
     }
     return (
-      <div>
+      <div className={checkInOut}>
         <div>
         <div className={checkInDiv} onClick={this.handleClickIn}>
           <div className={checkInColorBox}>
@@ -144,7 +143,7 @@ class CheckInAndOut extends Component {
       outDateFormat = moment(this.state.checkOutDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)
     }
     return (
-      <div>
+      <div className={checkInOut}>
         <div className={checkInDiv} onClick={this.handleClickIn}>
           <div className={checkInColorBox} />
           <span className={checkInBoxClosed}>
@@ -174,19 +173,19 @@ class CheckInAndOut extends Component {
     // both modals closed
     if (this.state.inModalOpen === false && this.state.outModalOpen === false) {
       return (
-        <div>
+        <div className={checkInOut}>
           {this.renderClosedBoxes()}
         </div>
       );
     } if (this.state.inModalOpen === true && this.state.outModalOpen === false) {
       return (
-        <div>
+        <div className={checkInOut}>
           {this.renderOpenCheckIn()}
         </div>
       );
     } if (this.state.inModalOpen === false && this.state.outModalOpen === true) {
       return (
-        <div>
+        <div className={checkInOut}>
           {this.renderOpenCheckOut()}
         </div>
       );
