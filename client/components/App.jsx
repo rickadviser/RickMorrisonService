@@ -10,6 +10,7 @@ import { wrapper, checkIn, checkInOut, checkOut, guestSelectorBox, siteBoxes, si
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserFriends} from '@fortawesome/free-solid-svg-icons';
+import CheckInAndOut from './CheckInAndOut';
 library.add(faUserFriends)
 
 // import { library } from '@fortawesome/fontawesome-svg-core';
@@ -90,7 +91,7 @@ class App extends Component {
           12 people are viewing this hotel</span>
         <span>
           <div className={checkInOut}>
-            <CheckInDate
+            {/* <CheckInDate
               updatePrices={this.updatePrices}
               getLowestPrices={this.getLowestPrices}
               checkInDate={this.state.checkInDate}
@@ -102,6 +103,14 @@ class App extends Component {
               updateCheckout={this.updateCheckout}
               updatePrices={this.updatePrices}
               data-test="checkOutDate"
+            /> */}
+            <CheckInAndOut
+              updatePrices={this.updatePrices}
+              getLowestPrices={this.getLowestPrices}
+              checkInDate={this.state.checkInDate}
+              checkOutDate={this.state.checkOutDate}
+              updateCheckin={this.updateCheckin}
+              updateCheckOut={this.updateCheckOut}
             />
           </div>
           <br/>

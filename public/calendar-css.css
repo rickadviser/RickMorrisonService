@@ -18,7 +18,15 @@ body {
     width: 100%;
 }
 
-.calendars {
+.checkInCalendar {
+  display: flex;
+  position: fixed;
+  top: 25px;
+  left: 140px;
+  z-index: 6;
+}
+
+.checkOutCalendar {
   display: flex;
   position: fixed;
   top: 25px;

@@ -57,7 +57,7 @@
 }
 
 .checkInOut {
-  display: flex;
+  display: block;
   justify-content: space-between;
   width: 300px;
 }

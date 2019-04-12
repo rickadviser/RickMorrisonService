@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import { calendar, calendars, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDateOne, selectDateTwo } from '../../public/calendar-css.css';
+import { calendar, checkInCalendar, header, monthDisplay, monthLabel, arrowLeft, arrowRight, selectDateOne, selectDateTwo } from '../../public/calendar-css.css';
 import DayNames from './DayNames';
 import Week from './Week';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -9,7 +9,7 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 library.add(faAngleLeft);
 library.add(faAngleRight);
 
-class Calendar extends React.Component {
+class CheckInCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -87,7 +87,7 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <div className={calendars}>
+      <div className={checkInCalendar}>
         <section className={calendar}>
           <div className={selectDateOne}>Select a date </div>
           <header className={header}>
@@ -117,4 +117,4 @@ class Calendar extends React.Component {
   }
 }
 
-export default Calendar;
+export default CheckInCalendar;

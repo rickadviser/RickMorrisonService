@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Moment from 'react-moment';
 import moment from 'moment';
 import Calendar from './Calendar';
+import CheckInCalendar from './CheckInCalendar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
@@ -25,6 +26,7 @@ class CheckInDate extends Component {
     const formattedDate = moment(stringDate).format('M-D-YYYY');
     this.setState({
       checkInDate: formattedDate,
+      modalOpen: false,
     });
     this.props.updateCheckin(formattedDate);
     this.props.getLowestPrices();
@@ -51,7 +53,7 @@ class CheckInDate extends Component {
                 <span> Check In {moment(this.state.checkInDate.toString(), "ddd M-D-YYYY").toString().substring(0, 15)}</span>
               </span>
             </div>
-            <Calendar
+            <CheckInCalendar
               // onChange={() => this.props.updatePrices(this.state)}
               onChange={date => this.handleChange(date)}
             />
@@ -67,7 +69,7 @@ class CheckInDate extends Component {
               <span> Check In {this.state.checkInDate}</span>
             </span>
           </div>
-          <Calendar
+          <CheckInCalendar
             // onChange={() => this.props.updatePrices(this.state)}
             onChange={date => this.handleChange(date)}
           />
