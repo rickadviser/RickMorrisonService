@@ -14,6 +14,7 @@
 }
 
 .viewDeals {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   justify-items: right;
@@ -73,6 +74,7 @@
 }
 
 .checkInBoxOpen {
+  cursor: pointer;
   position: relative;
   display: inline-block;
   align-content: center;
@@ -84,6 +86,7 @@
 }
 
 .checkInBoxClosed {
+  cursor: pointer;
   position: relative;
   display: inline-block;
   align-content: center;
@@ -124,6 +127,7 @@
 }
 
 .checkOutBoxOpen {
+  cursor: pointer;
   position: relative;
   display: inline-block;
   align-content: center;
@@ -135,6 +139,7 @@
 }
 
 .checkOutBoxClosed {
+  cursor: pointer;
   position: relative;
   display: inline-block;
   align-content: center;
@@ -154,6 +159,7 @@
 }
 
 .otherPrices {
+  cursor: pointer;
   display: flex;
   color: blue;
   font-size: 10px;
@@ -171,6 +177,7 @@
 }
 
 .guestSelectorBox {
+  cursor: pointer;
   display: flex;
   justify-content: flex-start;
   border: solid .5px gray;
@@ -180,18 +187,18 @@
 
 .guests {
   font-size: 10px;
-  display: flex;
-  justify-content: flex-start;
+  padding: 5px;
 }
 
 .guestList {
-  display: flex;
   font-size: 12px;
   font-weight: bold;
+  padding: 3px;
 }
 
 
 .updateButton {
+  cursor: pointer;
   background: rgb(0, 128, 85);
   color: white;
   width: 200px;
@@ -201,6 +208,7 @@
 }
 
 .plusMinusButtons {
+  cursor: pointer;
   background: white;
   color: green;
   height: 20px;
