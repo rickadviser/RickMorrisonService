@@ -21,17 +21,17 @@ body {
 
 .checkInCalendar {
   display: flex;
-  position: fixed;
-  top: 25px;
-  left: 140px;
+  position: absolute;
+  top: -30px;
+  left: 100px;
   z-index: 6;
 }
 
 .checkOutCalendar {
   display: flex;
-  position: fixed;
-  top: 25px;
-  left: 320px;
+  position: absolute;
+  top: -30px;
+  left: 270px;
 }
 
 

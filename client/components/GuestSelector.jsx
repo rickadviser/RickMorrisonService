@@ -3,7 +3,7 @@ import GuestModal from './GuestModal';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserFriends } from '@fortawesome/free-solid-svg-icons';
-import { guests, guestList, guestSelectorBox } from '../../public/css.css';
+import { guests, guestList, guestSelectorBox, guestSelector } from '../../public/css.css';
 library.add(faUserFriends)
 
 class GuestSelector extends Component {
@@ -44,7 +44,7 @@ class GuestSelector extends Component {
       );
     }
     return (
-      <div>
+      <div className={guestSelector}>
         <div id="guestSelectorBox" className={guestSelectorBox} onClick={this.props.handleGuestClick}>
           <FontAwesomeIcon icon="user-friends" size="sm" color="gray" />
           <div>

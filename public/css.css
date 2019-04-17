@@ -6,6 +6,7 @@
   padding: 5px;
 } */
 
+
 .viewingHotel {
   display: block;
   color: red;
@@ -58,6 +59,7 @@
 }
 
 .checkInOut {
+  position:relative;
   display: flex;
   justify-content: space-between;
   width: 300px;
@@ -176,6 +178,10 @@
   padding-left: 75px;
 }
 
+.guestSelector {
+  position: relative
+}
+
 .guestSelectorBox {
   cursor: pointer;
   display: flex;
@@ -269,16 +275,22 @@
 }
 
 .guestModal {
-  position: fixed;
+  position: absolute;
   display: block; 
   width: 220px; 
-  height: 25%;
-  top: 50px; 
+  height: 475%;
+  top: -50px; 
   left: 320px;
   right: 0;
   bottom: 0;
   background-color: white;
-  z-index: 2; 
+  border: solid 1px gray;
+  z-index: 6; 
   cursor: pointer;
-  border: solid 1px gray
+}
+
+.whiteBackground {
+  background: white;
+  /* display: flex; */
+  height: 100%;
 }

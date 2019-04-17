@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   getLowestPrices() {
-    fetch(`http://localhost:3001/prices/${this.state.checkInDate}`)
+    fetch(`/prices/${this.state.checkInDate}`)
       .then(res => res.json())
       .then((data) => {
         const tupleArray = Object.entries(data.result[0]);

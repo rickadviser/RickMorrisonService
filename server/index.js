@@ -12,12 +12,19 @@ const app = express();
 const PORT = 3001;
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'pricing',
-  port: '3001',
+  host: 'remotemysql.com',
+  user: 'QG3205KFfn',
+  password: 'u4QIcmiVbD',
+  database: 'QG3205KFfn',
+  port: '3306',
 });
+
+// const connection = mysql.createConnection({
+//   host: 'database',
+//   user: 'root',
+//   password: '',
+//   database: 'pricing',
+// });
 
 connection.connect((err) => {
   if (err) {
@@ -33,7 +40,7 @@ app.use(bodyParser.json());
 
 app.get('/prices/:date', (req, res) => {
   const { date } = req.params;
-  const query = `SELECT * FROM hotelpricing WHERE hotelpricing.bookDate_old = "${date}";`;
+  const query = `SELECT * FROM hotelPricing WHERE hotelPricing.bookDate_old = "${date}";`;
   connection.query(query, (err, results) => {
     if (err) {
       console.error(err);

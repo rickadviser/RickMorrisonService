@@ -11,4 +11,24 @@ services:
   database:
     image: mysql:latest
     environment: 
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+
+# version: '3.3'
+# services:
+#   db:
+#     image: mysql:5.7
+#     restart: always
+#     environment:
+#       MYSQL_DATABASE: 'db'
+#       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+#     ports:
+#       # <Port exposed> : < MySQL Port running inside container>
+#       - '3009:3009'
+#     expose:
+#       - '3009'
+#       # Where our data will be persisted
+#     volumes:
+#       - my-db:/var/lib/mysql
+# # Names our volume
+# volumes:
+#   my-db:
