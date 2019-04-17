@@ -12,6 +12,11 @@ COPY . /src/app
 
 # Does your app have any dependencies that should be installed?
 RUN yarn install
+RUN npm install mysql
+RUN set -ex; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+    mysql-client
 
 # What port will the container talk to the outside world with once created?
 EXPOSE 3000

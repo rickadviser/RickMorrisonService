@@ -8,7 +8,7 @@
   },
   "scripts": {
     "webpack": "webpack --mode development --host 0.0.0.0 --watch",
-    "start": "concurrently \"npm run webpack\" \"npm run seed\" \"npm run server\"",
+    "start": "concurrently \"npm run webpack\" \"npm run server\"",
     "server": "nodemon server/index.js",
     "seed": "mysql -u root < schema.sql",
     "test": "jest --detectOpenHandles",

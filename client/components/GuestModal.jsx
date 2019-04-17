@@ -3,7 +3,7 @@ import { guestNumbers } from '../../public/css.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserFriends, faBed, faChild } from '@fortawesome/free-solid-svg-icons';
-import { roomsColumnTwo, roomsLine, adultsLine, adultsColumnTwo, childrenLine, childrenColumnTwo, updateButton, modalButtons, plusMinusButtons, guestModal } from '../../public/css.css';
+import { whiteBackground, roomsColumnTwo, roomsLine, adultsLine, adultsColumnTwo, childrenLine, childrenColumnTwo, updateButton, modalButtons, plusMinusButtons, guestModal } from '../../public/css.css';
 library.add(faUserFriends);
 library.add(faBed);
 library.add(faChild);
@@ -72,50 +72,52 @@ class GuestModal extends Component {
   render() {
     return (
       <div id="guestModal" className={`${modalButtons} ${guestModal}`}>
-        <div className={roomsLine}>
+        <div className={whiteBackground}>
+          <div className={roomsLine}>
+            <div>
+              <FontAwesomeIcon icon="bed" color="gray" />
+              <span>Rooms</span>
+            </div>
+            <div className={roomsColumnTwo}>
+              <span className={guestNumbers}>
+                <button type="button" className={plusMinusButtons} id="decreaseRooms" onClick={this.decreaseRooms}>-</button>
+                {this.state.rooms}
+                <button type="button" className={plusMinusButtons} id="increaseRooms" onClick={this.increaseRooms}>+</button>
+              </span>
+            </div>
+          </div>
+          <br/>
+          <div className={adultsLine}>
+            <div>
+              <FontAwesomeIcon icon="user-friends" color="gray" />
+              <span>Adults</span>
+            </div>
+            <div className={adultsColumnTwo}>
+              <span className={guestNumbers}>
+                <button type="button" className={plusMinusButtons} id="decreaseAdults" onClick={this.decreaseAdults}>-</button>
+                {this.state.adults}
+                <button type="button" className={plusMinusButtons} id="increaseAdults" onClick={this.increaseAdults}>+</button>
+              </span>
+            </div>
+          </div>
+          <br/>
+          <div className={childrenLine}>
+            <div>
+              <FontAwesomeIcon icon="child" color="gray" />
+              <span>Children</span>
+            </div>
+            <div className={childrenColumnTwo}>
+              <span className={guestNumbers}>
+                <button type="button" className={plusMinusButtons} id="decreaseChildren" onClick={this.decreaseChildren}>-</button>
+                {this.state.children}
+                <button type="button" className={plusMinusButtons} id="increaseChildren" onClick={this.increaseChildren}>+</button>
+              </span>
+            </div>
+          </div>
+          <br/>
           <div>
-            <FontAwesomeIcon icon="bed" color="gray" />
-            <span>Rooms</span>
+            <button type="button" id="update" className={updateButton} onClick={() => this.props.handleUpdate(this.state)}>Update</button>
           </div>
-          <div className={roomsColumnTwo}>
-            <span className={guestNumbers}>
-              <button type="button" className={plusMinusButtons} id="decreaseRooms" onClick={this.decreaseRooms}>-</button>
-              {this.state.rooms}
-              <button type="button" className={plusMinusButtons} id="increaseRooms" onClick={this.increaseRooms}>+</button>
-            </span>
-          </div>
-        </div>
-        <br/>
-        <div className={adultsLine}>
-          <div>
-            <FontAwesomeIcon icon="user-friends" color="gray" />
-            <span>Adults</span>
-          </div>
-          <div className={adultsColumnTwo}>
-            <span className={guestNumbers}>
-              <button type="button" className={plusMinusButtons} id="decreaseAdults" onClick={this.decreaseAdults}>-</button>
-              {this.state.adults}
-              <button type="button" className={plusMinusButtons} id="increaseAdults" onClick={this.increaseAdults}>+</button>
-            </span>
-          </div>
-        </div>
-        <br/>
-        <div className={childrenLine}>
-          <div>
-            <FontAwesomeIcon icon="child" color="gray" />
-            <span>Children</span>
-          </div>
-          <div className={childrenColumnTwo}>
-            <span className={guestNumbers}>
-              <button type="button" className={plusMinusButtons} id="decreaseChildren" onClick={this.decreaseChildren}>-</button>
-              {this.state.children}
-              <button type="button" className={plusMinusButtons} id="increaseChildren" onClick={this.increaseChildren}>+</button>
-            </span>
-          </div>
-        </div>
-        <br/>
-        <div>
-          <button type="button" id="update" className={updateButton} onClick={() => this.props.handleUpdate(this.state)}>Update</button>
         </div>
       </div>
     );
