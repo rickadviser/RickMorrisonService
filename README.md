@@ -25,6 +25,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - ReactJS - the front-end framework used
 - Node.js/Express - used to develop server
 - MySQL - used to store data for pricing and dates
+- Amazon Web Services (AWS) - used to deploy component for online hosting
 - Moment.js - used for formatting dates
 - CSS3 - used to style front-end render
 - HTML5 - used to construct skeleton of component
