@@ -4,7 +4,7 @@
 
 # Demonstration
 
-[RickAdvisor Demo Gif](http://freegifmaker.me/images/2fd8Y/)
+![RickAdvisor Demo Gif](http://i.freegifmaker.me/1/5/5/7/5/2/15575232672279862.gif)
 
 ## Related Projects
 
