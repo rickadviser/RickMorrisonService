@@ -5,6 +5,7 @@
 # Demonstration
 
 ![RickAdvisor Demo Gif](http://i.freegifmaker.me/1/5/5/7/5/2/15575232672279862.gif)
+[Full Application Demo Video](https://youtu.be/yOlJPWOh-iA)
 
 ## Related Projects
 
