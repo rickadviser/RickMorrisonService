@@ -11,8 +11,8 @@
 ## Table of Contents
 
 1. [Requirements](#requirements)
-1. [Technologies Used](#technologies used)
-1. [Installing Dependencies](#installing dependencies)
+1. [Technologies Used](#technologies-used)
+1. [Installing Dependencies](#installing-dependencies)
 1. [License](#license)
 
 ## Requirements
